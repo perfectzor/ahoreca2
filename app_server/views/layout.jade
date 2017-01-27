@@ -3,41 +3,67 @@ html
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
-    link(rel='stylesheet', href='/bootstrap/css/flatly.css')
+    link(rel='stylesheet', href='/bootstrap/css/flatly.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/sidebar.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav.navbar.navbar-default
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') aHoreca
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href='/client/')
-                | Clients
-                span.sr-only (current)
-            li
-              a(href='/report/') Reports
-            li.dropdown
-              a.dropdown-toggle(data-toggle="dropdown")
-                | Dropdown
-                span.caret
-              ul.dropdown-menu
-                li
-                  a(href="#") action
-                li
-                  a(href="#") another action
+   .container-fluid
+       .col-lg-1.col-md-1.col-xs-12
+         img(src='/images/logo.png')  
+   .container-fluid      
+       nav.navbar.navbar-default.sidebar(role='navigation')
+        
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-sidebar-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li(class=path=='/dashboard'?'active':undefined)
+                a(href='/dashboard')
+                  | aHoreca
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-home(style='font-size:16px;')
+              li(class=path=='/profile'?'active':undefined)
+                a(href='/profile')
+                  | Perfil
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')  
+              li(class=path=='/client'?'active':undefined).dropdown
+                a.dropdown-toggle(href='/client', data-toggle='dropdown')
+                  | Clientes
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-menu-down(style='font-size:16px;')
+                ul.dropdown-menu.forAnimate(role='menu')
+                  li
+                    a(href="/client") Lista
+                  li
+                    a(href='/client/new') Novo
+              li(class=path=='/report'?'active':undefined).dropdown
+                a.dropdown-toggle(href='/report', data-toggle='dropdown')
+                  | Relatórios
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-menu-down(style='font-size:16px;')                
+                ul.dropdown-menu.forAnimate(role='menu')
+                  li
+                    a(href="/report") Lista
+                  li
+                    a(href='/report/new') Novo                  
+              li(class=path=='/about'?'active':undefined)
+                a(href='/about')
+                  | Sobre
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-info-sign(style='font-size:16px;')
+              li
+                a(href='/signout')
+                  | Sair
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-off(style='font-size:16px;')
 
-    block content
-    footer
-      .row
-        .col-xs-12
-          small &copy; João Fernandes 2017
+         
+
+       block content
+  footer
+     .container  
+       .row
+          .col-xs-12
+             small &copy; João Fernandes 2017
 
 
 

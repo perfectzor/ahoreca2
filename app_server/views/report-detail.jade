@@ -1,0 +1,138 @@
+extends layout
+
+block content
+ .container.col-lg-8
+  h1=report.name
+  p Relatório
+ 
+ .container.col-lg-10
+    .row-lg-10
+      .col-lg-10.col-md-6.col-xs-12
+        ul.nav.nav-tabs
+          li.active
+            a(href='#header', role='tab', data-toggle='tab') Cabeçalho
+          li
+            a(href='#summary', role='tab', data-toggle='tab') Síntese
+          li
+            a(href='#profitability', role='tab', data-toggle='tab') Rendibilidade
+          li
+            a(href='#solidity', role='tab', data-toggle='tab') Solidez
+          li
+            a(href='#liquidity', role='tab', data-toggle='tab') Liquidez
+          li
+            a(href='#management', role='tab', data-toggle='tab') Funcionamento
+ 
+ .container.col-lg-10
+    .row-lg-10
+      .col-lg-10.col-md-6.col-xs-12
+        .tab-content
+          .tab-pane.active(id='header')
+            .row-lg-10
+              .col-lg-10
+                br
+                h4 NOME: #{report.name}
+                h4 NIF: #{report.reportvat}
+                h4 CAE: #{report.cae}
+                h4 SEDE: #{report.address}
+                h4 CONTATOS: TEL: #{report.phone} FAX: #{report.fax}
+          .tab-pane(id='summary')
+            .row-lg-12
+              .col-lg-12
+                br
+                h4 CAPITAL SOCIAL: #{report.sharecapital} 
+                h4 CONSTITUIÇÃO: #{report.date}
+                h4 FORMA JURÍDICA: #{report.type}
+                h4 SÓCIO-GERENTE: #{report.manager}
+              .col-lg-12
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th INDICADORES
+                       -for (var i = 0; i < report.data.length; i++){
+                          th.text-center= report.data[i].year
+                       -}
+                  tbody
+                    tr
+                      td Vendas e Serviços prestados
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].sales
+                       -}
+                    tr
+                      td Resultado operacional (EBIT)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].operationincome
+                       -}                  
+                    tr
+                      td Resultado líquido do período
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].netincome
+                       -}
+                    tr
+                      td Cash-flow
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].cashflow
+                       -}
+                    tr
+                      td Activo
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].assets
+                       -}
+                    tr
+                      td Capital próprio
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].equity
+                       -}
+                    tr
+                      td Passivo
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].liabilities
+                       -}
+                 .chart-demo
+                  h2.title Doughnut Chart
+                  canvas#doughnutChart(width='640', height='400')
+                
+                   
+
+                 table.table.table-striped.table-hover
+                  thead                   
+                    tr
+                      th RÁCIOS FINANCEIROS
+                      td.text-center
+                      td.text-center
+                      td.text-center
+                      td.text-center
+                      td.text-center
+                  tbody 
+                    tr
+                      td Autonomia Financeira (%)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].financialautonomy
+                       -}
+                    tr
+                      td Taxa de margem económica (%)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].economicmargin
+                       -}
+                    tr
+                      td Rendibilidade do Capital Próprio (%)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].equityreturn
+                       -}
+                    tr
+                      td Rendibilidade do Ativo (%)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].assetsreturn
+                       -}
+                    tr
+                      td Liquidez reduzida (LR)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].reducedliquidity
+                       -}
+                    tr
+                      td Liquidez imediata (LI)
+                       -for (var i = 0; i < report.data.length; i++){
+                          td.text-center= report.data[i].imediateliquidity
+                       -}
+  
+  script(src='/node_modules/chart.js/dist/Chart.bundle.min.js') 
+  
