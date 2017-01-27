@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container.col-lg-8.col-xs-12
+    .row
+      h2= title
+
+  .container.col-lg-10.col-xs-12
+    .row
+      table.table.table-striped.table-hover
+        thead
+          tr.info
+            th Número
+            th Nome
+            th NIF
+            th E-mail
+            th Data
+        tbody
+          each client in clients
+            tr
+                td=client.number
+                td
+                 a(href="/client/detail/#{client.clientvat}")= client.name
+                td=client.clientvat
+                td=client.email
+                td Column content
+
