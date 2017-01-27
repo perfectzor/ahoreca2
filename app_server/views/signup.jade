@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/flatly.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+        .row.text-center
+          img(class='profile-img', src='/images/logo_big.png')
+    .container-vertical-center
+        .row.text-center
+          .col-lg-2.col-sm-6.col-md-4.col-lg-offset-5.col-sm-offset-3.col-md-offset-4
+
+                form(class='form-signup', action='/signup', method='POST')
+                  input(type='text', name='username' class='form-control', placeholder='Email',required, autofocus)
+                  input(type='password', name='password' class='form-control', placeholder='Senha', required)
+                  button(class='btn btn-lg btn-primary btn-block', type='submit') Registar
+                  span.clearfix
+                #message
+                if message
+                  h1.text-center.error-message #{message}
