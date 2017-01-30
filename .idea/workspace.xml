@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3141e0d5-7e7b-4a61-8701-61b9ec46cbe3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-    </list>
+    <list default="true" id="3141e0d5-7e7b-4a61-8701-61b9ec46cbe3" name="Default" comment="" />
     <ignored path="ahoreca.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,9 +27,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
-                <marker date="1485540204014" expanded="true" signature="267:654" placeholder="{...}" />
                 <marker date="1485540204014" expanded="true" signature="2400:2401" placeholder="{...}" />
-                <marker date="1485540204014" expanded="true" signature="2400:2556" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -43,11 +38,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-              <folding>
-                <marker date="1485540204071" expanded="true" signature="17:172" placeholder="..." />
-                <marker date="1485540204071" expanded="true" signature="24:172" placeholder="..." />
-                <marker date="1485540204071" expanded="true" signature="2814:2856" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,7 +50,6 @@
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <marker date="1485540204034" expanded="true" signature="1565:1581" placeholder="{...}" />
-                <marker date="1485540204034" expanded="true" signature="1565:1589" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -78,7 +68,7 @@
       <file leaf-file-name="new-client.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_server/views/new-client.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.037037">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
               <folding />
             </state>
@@ -124,10 +114,8 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <marker date="1485540203882" expanded="true" signature="52:91" placeholder="{&quot;server&quot;: &quot;http://localhost:3000&quot;...}" />
                 <marker date="1485540203882" expanded="true" signature="151:189" placeholder="{...}" />
                 <marker date="1485540203882" expanded="true" signature="1002:1114" placeholder="{&quot;title&quot;: 'Client Detail'...}" />
-                <marker date="1485540203882" expanded="true" signature="1002:1120" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -136,8 +124,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43883276">
-              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.43899783">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -460,11 +448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="44" />
-          <folding>
-            <marker date="1485540204071" expanded="true" signature="17:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="24:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="2814:2856" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -480,10 +464,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <marker date="1485540203882" expanded="true" signature="52:91" placeholder="{&quot;server&quot;: &quot;http://localhost:3000&quot;...}" />
             <marker date="1485540203882" expanded="true" signature="151:189" placeholder="{...}" />
             <marker date="1485540203882" expanded="true" signature="1002:1114" placeholder="{&quot;title&quot;: 'Client Detail'...}" />
-            <marker date="1485540203882" expanded="true" signature="1002:1120" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -501,9 +483,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <marker date="1485540204014" expanded="true" signature="267:654" placeholder="{...}" />
             <marker date="1485540204014" expanded="true" signature="2400:2401" placeholder="{...}" />
-            <marker date="1485540204014" expanded="true" signature="2400:2556" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -521,9 +501,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <marker date="1485540204014" expanded="true" signature="267:654" placeholder="{...}" />
             <marker date="1485540204014" expanded="true" signature="2400:2401" placeholder="{...}" />
-            <marker date="1485540204014" expanded="true" signature="2400:2556" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -573,11 +551,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="44" />
-          <folding>
-            <marker date="1485540204071" expanded="true" signature="17:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="24:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="2814:2856" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -593,10 +567,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <marker date="1485540203882" expanded="true" signature="52:91" placeholder="{&quot;server&quot;: &quot;http://localhost:3000&quot;...}" />
             <marker date="1485540203882" expanded="true" signature="151:189" placeholder="{...}" />
             <marker date="1485540203882" expanded="true" signature="1002:1114" placeholder="{&quot;title&quot;: 'Client Detail'...}" />
-            <marker date="1485540203882" expanded="true" signature="1002:1120" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -614,9 +586,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
           <folding>
-            <marker date="1485540204014" expanded="true" signature="267:654" placeholder="{...}" />
             <marker date="1485540204014" expanded="true" signature="2400:2401" placeholder="{...}" />
-            <marker date="1485540204014" expanded="true" signature="2400:2556" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -639,11 +609,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1485540204071" expanded="true" signature="17:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="24:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="2814:2856" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -659,10 +625,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
           <folding>
-            <marker date="1485540203882" expanded="true" signature="52:91" placeholder="{&quot;server&quot;: &quot;http://localhost:3000&quot;...}" />
             <marker date="1485540203882" expanded="true" signature="151:189" placeholder="{...}" />
             <marker date="1485540203882" expanded="true" signature="1002:1114" placeholder="{&quot;title&quot;: 'Client Detail'...}" />
-            <marker date="1485540203882" expanded="true" signature="1002:1120" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -790,11 +754,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <marker date="1485540204071" expanded="true" signature="17:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="24:172" placeholder="..." />
-            <marker date="1485540204071" expanded="true" signature="2814:2856" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -803,9 +763,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <marker date="1485540204014" expanded="true" signature="267:654" placeholder="{...}" />
             <marker date="1485540204014" expanded="true" signature="2400:2401" placeholder="{...}" />
-            <marker date="1485540204014" expanded="true" signature="2400:2556" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -815,10 +773,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <marker date="1485540203882" expanded="true" signature="52:91" placeholder="{&quot;server&quot;: &quot;http://localhost:3000&quot;...}" />
             <marker date="1485540203882" expanded="true" signature="151:189" placeholder="{...}" />
             <marker date="1485540203882" expanded="true" signature="1002:1114" placeholder="{&quot;title&quot;: 'Client Detail'...}" />
-            <marker date="1485540203882" expanded="true" signature="1002:1120" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -856,7 +812,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1485540204034" expanded="true" signature="1565:1581" placeholder="{...}" />
-            <marker date="1485540204034" expanded="true" signature="1565:1589" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -871,7 +826,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app_server/views/new-client.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.037037">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding />
         </state>
@@ -879,8 +834,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43883276">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.43899783">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding />
         </state>
       </provider>
