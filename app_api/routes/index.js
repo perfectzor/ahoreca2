@@ -1,11 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var ctrlDashboard = require('../controllers/dashboard');
+var ctrlUsers = require('../controllers/users');
 var ctrlClients = require('../controllers/clients');
 var ctrlReports = require('../controllers/reports');
 
 /* Dashboard pages */
 //router.get('/', ctrlDashboard.index);
+
+/*  Users pages */
+router.get('/users', ctrlUsers.usersInfo);
+router.post('/users', ctrlUsers.addUser);
+router.get('/users/:userid', ctrlUsers.usersReadOne);
+router.put('/users/:userid', ctrlUsers.usersUpdateOne);
+router.delete('/users/:userid', ctrlUsers.usersDeleteOne);
+
+
 /* Clients pages */
 router.get('/clients', ctrlClients.clientsInfo);
 router.post('/clients', ctrlClients.addClient);
