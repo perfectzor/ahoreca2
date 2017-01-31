@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container.col-lg-8.col-xs-12
+    .row
+      h2= title
+
+  .container.col-lg-10.col-xs-12
+    .row
+      table.table.table-striped.table-hover
+        thead
+          tr.info
+            th Utilizador
+            th E-mail
+        tbody
+          each user in users
+            tr
+                td
+                 a(href="/user/detail/#{user.userid}")= user.username
+                td= user.email
+
