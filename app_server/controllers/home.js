@@ -4,7 +4,7 @@ module.exports.index = function(req, res){
 };
 
 module.exports.dashboard = function(req, res){
-    res.render('dashboard', { path: req.path, title: 'aHoreca - Dashboard' });
+    res.render('dashboard', { path: req.path, title: 'Dashboard' });
 };
 
 module.exports.profile = function (req, res) {
