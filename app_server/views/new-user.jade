@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  h1= title
+  .container.col-lg-8.col-xs-12
+     .row
+       h1= title
 
 
 
-    .container
-        .row
+  .container.col-lg-8.col-xs-12
+     .row
             form(class='form-signup', action='/signup', method='POST')
                 h2 Dados
                     .row
@@ -19,6 +21,4 @@ block content
                     label.control-label(for='inputEmail') Email
                         input#inputEmail.form-control(type='text', name='email' class='form-control', placeholder='E-mail',required)
                     .row
-                    label.control-label(for='inputEmail') NIF
-                        input#inputVat.form-control(type='text', name='vat' class='form-control', placeholder='NIF',required)
                   button.btn.btn-primary(type='submit') Registar

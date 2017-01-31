@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var ctrlHome = require('../controllers/home');
+var ctrlUsers = require('../controllers/users');
 var ctrlClients = require('../controllers/clients');
 var ctrlReports = require('../controllers/reports');
 
@@ -25,6 +26,11 @@ router.get('/about', isAuthenticated, ctrlHome.about);
 /* profiles pages */
 router.get('/profile', isAuthenticated, ctrlHome.profile);
 
+
+/* Users pages */
+router.get('/user', isAuthenticated, ctrlUsers.userInfo);
+router.get('/user/new', isAuthenticated, ctrlUsers.addUser);
+router.get('/user/detail/:userid', isAuthenticated, ctrlUsers.userDetail);
 
 /* Clients pages */
 router.get('/client', isAuthenticated, ctrlClients.clientInfo);
