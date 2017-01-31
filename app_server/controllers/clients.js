@@ -3,6 +3,9 @@ var request = require('request');
 var apiOptions = {
     server: "http://localhost:3000"
 };
+if (process.env.NODE_ENV === 'production') {
+    apiOptions.server = "https://ahoreca.herokuapp.com";
+}
 
 var renderClientspage = function(req, res, responseBody) {
     res.render('clients-list', 
