@@ -4,6 +4,7 @@ var ctrlHome = require('../controllers/home');
 var ctrlUsers = require('../controllers/users');
 var ctrlClients = require('../controllers/clients');
 var ctrlReports = require('../controllers/reports');
+var connectRoles = require('connect-roles');
 
 var isAuthenticated = function (req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler 
@@ -15,6 +16,53 @@ var isAuthenticated = function (req, res, next) {
     res.redirect('/');
 }
 
+//Connect roles
+
+var user = new connectRoles({
+    failureHandler: function (req, res, action) {
+        // optional function to customise code that runs when 
+        // user fails authorisation 
+        var accept = req.headers.accept || '';
+        res.status(403);
+        if (~accept.indexOf('html')) {
+            res.render('access-denied', { action: action });
+        } else {
+            res.send('Access Denied - You don\'t have permission to: ' + action);
+        }
+    }
+});
+
+
+
+//anonymous users can only access the home page 
+//returning false stops any more rules from being 
+//considered 
+user.use(function (req, action) {
+    if (!req.isAuthenticated()) return action === 'access home area';
+})
+
+user.use('access client area', function (req) {
+    if (req.user.role === 'client') {
+        return true;
+    }
+})
+
+//moderator users can access private page, but 
+//they might not be the only ones so we don't return 
+//false if the user isn't a moderator 
+user.use('access collaborator area', function (req) {
+    if (req.user.role === 'collaborator') {
+        return true;
+    }
+})
+
+//admin users can access all pages 
+user.use(function (req) {
+    if (req.user.role === 'admin') {
+        return true;
+    }
+});
+
 /* home pages */
 router.get('/', ctrlHome.index);
 router.get('/dashboard', isAuthenticated, ctrlHome.dashboard);
@@ -24,18 +72,18 @@ router.get('/about', isAuthenticated, ctrlHome.about);
 
 
 /* profiles pages */
-router.get('/profile', isAuthenticated, ctrlHome.profile);
+router.get('/profile', isAuthenticated,ctrlHome.profile);
 
 
 /* Users pages */
-router.get('/user', isAuthenticated, ctrlUsers.userInfo);
-router.get('/user/new', isAuthenticated, ctrlUsers.addUser);
-router.get('/user/detail/:userid', isAuthenticated, ctrlUsers.userDetail);
+router.get('/user', isAuthenticated, user.can('access admin page'), ctrlUsers.userInfo);
+router.get('/user/new', isAuthenticated, user.can('access admin page'), ctrlUsers.addUser);
+router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'), ctrlUsers.userDetail);
 
 /* Clients pages */
-router.get('/client', isAuthenticated, ctrlClients.clientInfo);
-router.get('/client/new', isAuthenticated, ctrlClients.addClient);
-router.get('/client/detail/:clientvat', isAuthenticated, ctrlClients.clientDetail);
+router.get('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.clientInfo);
+router.get('/client/new', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
+router.get('/client/detail/:clientvat', user.can('access collaborator area'), isAuthenticated, ctrlClients.clientDetail);
 
 
 /* Reports pages */

@@ -9,7 +9,7 @@ var usersSchema = new mongoose.Schema({
     username: String,
     email: String, 
     password: String,
-    vat: String
+    role: String
    
 });
 

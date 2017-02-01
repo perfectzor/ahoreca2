@@ -11,7 +11,7 @@ html
        .col-lg-2.col-md-2.col-xs-5
          img(src='/images/logo.png')
        .col-lg-10.col-md-10.col-xs-7
-         h2=title
+           h2=title        
    .container-fluid      
        nav.navbar.navbar-default.sidebar(role='navigation')
         
@@ -44,6 +44,7 @@ html
                     a(href="/report") Lista
                   li
                     a(href='/report/new') Novo
+               
               li(class=path=='/user'?'active':undefined).dropdown
                 a.dropdown-toggle(href='/user', data-toggle='dropdown')
                   | Utilizadores

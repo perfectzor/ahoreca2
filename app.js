@@ -11,6 +11,7 @@ require('./app_api/models/db');
 
 var users = require('./app_server/routes/users');
 var passport = require('passport');
+var connectRoles = require('connect-roles');
 var expressSession = require('express-session');
 var routes = require('./app_server/routes/index')(passport);
 var routesApi = require('./app_api/routes/index');
@@ -45,6 +46,29 @@ app.use(flash());
 
 initPassport(passport);
 
+
+
+//connect.roles
+
+var user = new connectRoles({
+    failureHandler: function (req, res, action) {
+        // optional function to customise code that runs when 
+        // user fails authorisation 
+        var accept = req.headers.accept || '';
+        res.status(403);
+        if (~accept.indexOf('html')) {
+            res.render('access-denied', { action: action });
+        } else {
+            res.send('Access Denied - You don\'t have permission to: ' + action);
+        }
+    }
+});
+
+app.use(user.middleware());
+
+
+
+//routes
 
 app.use('/', routes);
 app.use('/users', users);
