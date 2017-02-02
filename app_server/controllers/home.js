@@ -3,8 +3,13 @@ module.exports.index = function(req, res){
     res.render('index', { title: 'aHoreca' });
 };
 
-module.exports.dashboard = function(req, res){
-    res.render('dashboard', { path: req.path, title: 'Dashboard' });
+module.exports.dashboard = function (req, res) {
+    if (req.user.role == "admin")
+        res.render('dashboard', { path: req.path, title: 'Dashboard' });
+    else if (req.user.role == "collaborator")
+        res.render('dashboard-collaborator', { path: req.path, title: 'Dashboard' });
+    else if (req.user.role == "client")
+        res.render('dashboard-client', { path: req.path, title: 'Dashboard' });
 };
 
 module.exports.profile = function (req, res) {

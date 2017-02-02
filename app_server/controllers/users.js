@@ -12,11 +12,13 @@ var renderUserspage = function(req, res, responseBody) {
         {
         path: '/user',
         user: req.user,
+        role: req.user.role,
         title: 'Utilizadores',
         users: responseBody
-        //console.log(clients);
+       
     });
-    
+    console.log(req.user.role);
+
 
 };
 
