@@ -13,11 +13,22 @@ module.exports.dashboard = function (req, res) {
 };
 
 module.exports.profile = function (req, res) {
-    res.render('profile', { path: req.path, title: 'Perfil' });
+    if (req.user.role == "admin")
+        res.render('profile', { path: req.path, title: 'Perfil' });
+    else if (req.user.role == "collaborator")
+        res.render('profile-collaborator', { path: req.path, title: 'Perfil' });
+    else if (req.user.role == "client")
+        res.render('profile-client', { path: req.path, title: 'Perfil' });
 };
 
 module.exports.about = function (req, res) {
-    res.render('about', { path: req.path ,title: 'About us' });
+    
+    if (req.user.role == "admin")
+        res.render('about', { path: req.path , title: 'About us' });
+    else if (req.user.role == "collaborator")
+        res.render('about-collaborator', { path: req.path , title: 'About us' });
+    else if (req.user.role == "client")
+        res.render('about-client', { path: req.path , title: 'About us' });
 };
 
 
