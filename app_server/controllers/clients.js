@@ -37,6 +37,36 @@ module.exports.clientInfo = function (req, res) {
         }
     );
 }
+
+var renderLeadspage = function (req, res, responseBody) {
+    res.render('leads-list',
+        {
+            path: '/leads',
+            user: req.user,
+            title: 'Leads',
+            clients: responseBody
+            //console.log(clients);
+        });
+
+
+};
+module.exports.leadsInfo = function (req, res) {
+    var requestOptions, path;
+    path = '/api/clients';
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "GET",
+        json: true,
+        qs: {
+        }
+    };
+    request(
+        requestOptions,
+        function (err, response, body) {
+            renderLeadspage(req, res, body);
+        }
+    );
+}
 module.exports.addClient = function(req, res){
     res.render('new-client', { path: '/client', title: 'Add new client' });
 };

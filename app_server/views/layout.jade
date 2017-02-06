@@ -32,9 +32,14 @@ html
                   | Perfil
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')  
               li(class=path=='/client'?'active':undefined)
-                a(href='/client')
+                a.dropdown-toggle(href='/client', data-toggle='dropdown')
                   | Clientes
-                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')                
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')
+                ul.dropdown-menu.forAnimate(role='menu')
+                  li
+                    a(href="/client") Lista
+                  li
+                    a(href='/lead') Potenciais               
               li(class=path=='/report'?'active':undefined).dropdown
                 a.dropdown-toggle(href='/report', data-toggle='dropdown')
                   | Relatórios

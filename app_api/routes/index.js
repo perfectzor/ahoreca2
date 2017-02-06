@@ -3,6 +3,7 @@ var router = express.Router();
 var ctrlDashboard = require('../controllers/dashboard');
 var ctrlUsers = require('../controllers/users');
 var ctrlClients = require('../controllers/clients');
+var ctrlLeads = require('../controllers/leads');
 var ctrlReports = require('../controllers/reports');
 
 /* Dashboard pages */
@@ -22,6 +23,14 @@ router.post('/clients', ctrlClients.addClient);
 router.get('/clients/:clientid', ctrlClients.clientsReadOne);
 router.put('/clients/:clientid', ctrlClients.clientsUpdateOne);
 router.delete('/clients/:clientid', ctrlClients.clientsDeleteOne);
+
+/* Leadss pages */
+router.get('/leads', ctrlLeads.leadsInfo);
+router.post('/leads', ctrlLeads.addLead);
+router.get('/leads/:leadid', ctrlLeads.leadsReadOne);
+router.put('/leads/:leadid', ctrlLeads.leadsUpdateOne);
+router.delete('/leads/:leadid', ctrlLeads.leadsDeleteOne);
+
 
 
 

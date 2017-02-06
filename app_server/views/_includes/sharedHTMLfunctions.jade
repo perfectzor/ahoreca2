@@ -1,0 +1,8 @@
+﻿mixin formatDate(dateString)
+  -var date = new Date(dateString);
+  -var monthNames = [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ];
+  -var d = date.getDate();
+  -var m = monthNames[date.getMonth()];
+  -var y = date.getFullYear();
+  -var output = d + ' ' + m + ' ' + y;
+  =output

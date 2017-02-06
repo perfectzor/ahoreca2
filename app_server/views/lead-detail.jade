@@ -1,0 +1,72 @@
+include _includes/sharedHTMLfunctions
+
+extends layout
+
+block content
+
+ .container.col-lg-8
+   h1= lead.name
+
+ .container.col-lg-8
+    .row-lg-8
+      .col-lg-8.col-md-6.col-xs-12
+         ul.nav.nav-tabs
+           li.active
+             a(href='#header', role='tab', data-toggle='tab') Cabeçalho
+           li
+             a(href='#comments', role='tab', data-toggle='tab') Comentários
+           li
+             a(href='#events', role='tab', data-toggle='tab') Eventos
+   
+ .container.col-lg-8
+    .row-lg-8
+      .col-lg-8.col-md-6.col-xs-12
+         .tab-content
+           .tab-pane.active(id='header')
+             .row-lg-12
+               .col-lg-12
+                 br
+                 h4 NOME: #{lead.name}
+                 h4 NIF: #{lead.leadvat}
+                 h4 CAE: #{lead.cae}
+                 h4 SEDE: #{lead.address}
+                 h4 TELEFONE: #{lead.telephone}
+                 h4 E-MAIL: #{lead.email}
+           .tab-pane(id='comments')
+             .row-lg-12
+               .col-lg-12
+                 br
+                 form.form-horizontal
+                  fieldset
+                    Legend Comentário
+                    .form-group
+                      label.col-lg-12.control-label(for='textArea')
+                       .col-lg-12
+                         textarea#textArea.form-control(rows='5')                         
+                    .form-group
+                       .col-lg-12
+                         button.btn.btn-default(type='reset') Cancelar
+                         button.btn.btn-primary(type='submit') Guardar
+             .row-lg-12
+               .col-lg-12
+                 table.table.table-striped.table-hover
+                   thead
+                     tr
+                       th Últimos comentários
+                       th Data
+                       th Autor
+                   tbody
+                   -for (var i = 0; i < lead.comments.length; i++){
+                         tr
+                            td=lead.comments[i].text
+                            td
+                             +formatDate(lead.comments[i].createdon)
+                            td=lead.comments[i].author
+                   -}
+           .tab-pane(id='events')
+             .row-lg-12
+               .col-lg-12
+                 br
+                 h4 TIPO:
+         
+               

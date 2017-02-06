@@ -53,5 +53,6 @@ process.on('SIGTERM', function () {
 
 
 require('./clients');
+require('./leads');
 require('./reports');
 require('./users');

@@ -3,6 +3,7 @@ var router = express.Router();
 var ctrlHome = require('../controllers/home');
 var ctrlUsers = require('../controllers/users');
 var ctrlClients = require('../controllers/clients');
+var ctrlLeads = require('../controllers/leads');
 var ctrlReports = require('../controllers/reports');
 var connectRoles = require('connect-roles');
 
@@ -84,6 +85,11 @@ router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'
 router.get('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.clientInfo);
 router.get('/client/new', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
 router.get('/client/detail/:clientvat', user.can('access collaborator area'), isAuthenticated, ctrlClients.clientDetail);
+
+
+/* Leads pages */
+router.get('/lead', isAuthenticated, user.can('access collaborator area'), ctrlLeads.leadInfo);
+router.get('/lead/detail/:_id', user.can('access collaborator area'), isAuthenticated, ctrlLeads.leadDetail);
 
 
 /* Reports pages */
