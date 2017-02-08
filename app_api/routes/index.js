@@ -27,6 +27,7 @@ router.delete('/clients/:clientid', ctrlClients.clientsDeleteOne);
 /* Leadss pages */
 router.get('/leads', ctrlLeads.leadsInfo);
 router.post('/leads', ctrlLeads.addLead);
+router.post('/leads/:leadid', ctrlLeads.commentsCreate);
 router.get('/leads/:leadid', ctrlLeads.leadsReadOne);
 router.put('/leads/:leadid', ctrlLeads.leadsUpdateOne);
 router.delete('/leads/:leadid', ctrlLeads.leadsDeleteOne);

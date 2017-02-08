@@ -36,13 +36,17 @@ block content
              .row-lg-12
                .col-lg-12
                  br
-                 form.form-horizontal
+                 form.form-horizontal(action="", method="post", role="form")
                   fieldset
                     Legend Comentário
                     .form-group
-                      label.col-lg-12.control-label(for='textArea')
+                      label.col-lg-12.control-label(for="author")
                        .col-lg-12
-                         textarea#textArea.form-control(rows='5')                         
+                         input#author.form-control(name="author" value="#{user.username}" rows='5' readonly) 
+                    .form-group
+                      label.col-lg-12.control-label(for="text")
+                       .col-lg-12
+                         textarea#text.form-control(name="text" rows='5')                         
                     .form-group
                        .col-lg-12
                          button.btn.btn-default(type='reset') Cancelar

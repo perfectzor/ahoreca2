@@ -90,7 +90,7 @@ router.get('/client/detail/:clientvat', user.can('access collaborator area'), is
 /* Leads pages */
 router.get('/lead', isAuthenticated, user.can('access collaborator area'), ctrlLeads.leadInfo);
 router.get('/lead/detail/:_id', user.can('access collaborator area'), isAuthenticated, ctrlLeads.leadDetail);
-
+router.post('/lead/detail/:leadid', user.can('access collaborator area'), isAuthenticated, ctrlLeads.AddComment);
 
 /* Reports pages */
 router.get('/report', isAuthenticated, ctrlReports.reportInfo);
