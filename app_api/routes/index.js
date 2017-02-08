@@ -19,7 +19,7 @@ router.delete('/users/:userid', ctrlUsers.usersDeleteOne);
 
 /* Clients pages */
 router.get('/clients', ctrlClients.clientsInfo);
-router.post('/clients', ctrlClients.addClient);
+router.post('/clients/', ctrlClients.addClient);
 router.get('/clients/:clientid', ctrlClients.clientsReadOne);
 router.put('/clients/:clientid', ctrlClients.clientsUpdateOne);
 router.delete('/clients/:clientid', ctrlClients.clientsDeleteOne);
