@@ -36,21 +36,32 @@ block content
              .row-lg-12
                .col-lg-12
                  br
-                 form.form-horizontal(action="", method="post", role="form")
-                  fieldset
-                    Legend Comentário
-                    .form-group
-                      label.col-lg-6.control-label(for="author")
-                       .col-lg-4
-                         input#author.form-control(name="author" value="#{user.username}" rows='5' readonly) 
-                    .form-group
-                      label.col-lg-12.control-label(for="text")
-                       .col-lg-12
-                         textarea#text.form-control(name="text" rows='5')
-                    .form-group
-                       .col-lg-12
-                         button.btn.btn-default(type='reset') Cancelar
-                         button.btn.btn-primary(type='submit') Guardar
+                 button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#myModal') Novo
+                 #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        button.close(type='button', data-dismiss='modal')
+                         span(aria-hidden='true') ×
+                         span.sr-only Close
+                        h4#myModalLabel.modal-title Novo Comentário
+                      .modal-body
+                        form.form-horizontal(action="", method="post", role="form")
+                         fieldset
+                           .form-group
+                             label.col-lg-6.control-label(for="author")
+                              .col-lg-12
+                                input#author.form-control(name="author" value="#{user.username}" rows='5' readonly) 
+                           .form-group
+                             label.col-lg-12.control-label(for="text")
+                              .col-lg-12
+                                textarea#text.form-control(name="text" rows='5')
+                           .form-group
+                              .col-lg-12
+                                button.btn.btn-default(type='reset') Cancelar
+                                button.btn.btn-primary.pull-right(type='submit') Guardar
+                      
+
              .row-lg-12
                .col-lg-12
                  table.table.table-striped.table-hover.table-break
