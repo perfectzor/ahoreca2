@@ -39,9 +39,6 @@ module.exports.userInfo = function (req, res) {
         }
     );
 }
-module.exports.addUser = function(req, res){
-    res.render('new-user', { path: '/user', title: 'Criar novo Utilizador' });
-};
 
 
 

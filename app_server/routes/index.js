@@ -78,7 +78,6 @@ router.get('/profile', isAuthenticated,ctrlHome.profile);
 
 /* Users pages */
 router.get('/user', isAuthenticated, user.can('access admin page'), ctrlUsers.userInfo);
-router.get('/user/new', isAuthenticated, user.can('access admin page'), ctrlUsers.addUser);
 router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'), ctrlUsers.userDetail);
 
 /* Clients pages */
