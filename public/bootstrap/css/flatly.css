@@ -2321,6 +2321,19 @@ th {
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
 }
+.table-break {
+    word-break: break-all;
+}
+.table-break > thead > tr > th,
+.table-break > tbody > tr > th,
+.table-break> tfoot > tr > th,
+.table-break > thead > tr > td,
+.table-break > tbody > tr > td,
+.table-break > tfoot > tr > td {
+  word-break: break-all;
+}
+
+
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }

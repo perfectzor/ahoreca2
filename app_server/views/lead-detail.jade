@@ -18,9 +18,9 @@ block content
            li
              a(href='#events', role='tab', data-toggle='tab') Eventos
    
- .container.col-lg-8
-    .row-lg-8
-      .col-lg-8.col-md-6.col-xs-12
+ .container.col-lg-10
+    .row-lg-10
+      .col-lg-10.col-md-10.col-xs-12
          .tab-content
            .tab-pane.active(id='header')
              .row-lg-12
@@ -40,20 +40,20 @@ block content
                   fieldset
                     Legend Comentário
                     .form-group
-                      label.col-lg-12.control-label(for="author")
-                       .col-lg-12
+                      label.col-lg-6.control-label(for="author")
+                       .col-lg-4
                          input#author.form-control(name="author" value="#{user.username}" rows='5' readonly) 
                     .form-group
                       label.col-lg-12.control-label(for="text")
                        .col-lg-12
-                         textarea#text.form-control(name="text" rows='5')                         
+                         textarea#text.form-control(name="text" rows='5')
                     .form-group
                        .col-lg-12
                          button.btn.btn-default(type='reset') Cancelar
                          button.btn.btn-primary(type='submit') Guardar
              .row-lg-12
                .col-lg-12
-                 table.table.table-striped.table-hover
+                 table.table.table-striped.table-hover.table-break
                    thead
                      tr
                        th Últimos comentários
@@ -62,10 +62,10 @@ block content
                    tbody
                    -for (var i = 0; i < lead.comments.length; i++){
                          tr
-                            td=lead.comments[i].text
-                            td
+                            td.col-lg-6=lead.comments[i].text
+                            td.col-lg-3
                              +formatDate(lead.comments[i].createdOn)
-                            td=lead.comments[i].author
+                            td.col-lg-3=lead.comments[i].author
                    -}
            .tab-pane(id='events')
              .row-lg-12
