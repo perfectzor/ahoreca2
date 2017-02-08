@@ -48,17 +48,18 @@ block content
                       .modal-body
                         form.form-horizontal(action="", method="post", role="form")
                          fieldset
-                           .form-group
-                             label.col-lg-6.control-label(for="author")
-                              .col-lg-12
+                           .form-group                           
+                              .col-lg-6
+                                p Utilizador:
                                 input#author.form-control(name="author" value="#{user.username}" rows='5' readonly) 
+                                
                            .form-group
-                             label.col-lg-12.control-label(for="text")
                               .col-lg-12
+                                p Comentário:
                                 textarea#text.form-control(name="text" rows='5')
                            .form-group
                               .col-lg-12
-                                button.btn.btn-default(type='reset') Cancelar
+                                button.btn.btn-default(type='reset') Apagar
                                 button.btn.btn-primary.pull-right(type='submit') Guardar
                       
 
