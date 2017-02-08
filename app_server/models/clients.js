@@ -1,7 +1,7 @@
 ﻿var mongoose = require('mongoose');
 
 var reportsSchema = new mongoose.Schema({
-    vat: { type: Number, required: true }
+    vat: { type: Number}
     
 });
 

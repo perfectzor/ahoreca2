@@ -1,9 +1,59 @@
 extends layout
 
 block content
+
+  .container.col-lg-10.col-xs-12
+    .row-lg-12
+      .col-lg-12
+        button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#myModal') Novo
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal')
+                 span(aria-hidden='true') ×
+                 span.sr-only Close
+                h4#myModalLabel.modal-title Novo Cliente
+              .modal-body
+                form(class='form-signup', action="", method='POST')
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputName') Nome:
+                        input#inputUsername.form-control(type='text', name='name' class='form-control', placeholder='Nome',required, autofocus)
+                  .row
+                    .col-lg-6
+                      h4.control-label(for='inputVat') NIF:
+                        input#inputPassword.form-control(type='text', name='clientvat' class='form-control', placeholder='NIF',required)
+                    .col-lg-6
+                      h4.control-label(for='inputCAE') CAE:
+                        input#inputEmail.form-control(type='text', name='cae' class='form-control', placeholder='CAE')
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputEmail') Email:
+                        input#inputEmail.form-control(type='text', name='email' class='form-control', placeholder='E-mail',required)
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputAddress') Morada:
+                        input#inputEmail.form-control(type='text', name='address' class='form-control', placeholder='Morada',required)
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputTelephone') Telefone:
+                        input#inputEmail.form-control(type='text', name='telephone' class='form-control', placeholder='Telefone',required)
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputSubscription') Subscrição:
+                        select#select.form-control(type='text', name='subscription' class='form-control')
+                          option Individual
+                          option Semanal
+                          option Mensal
+                          option Anual
+                  .row
+                  button.btn.btn-primary(type='submit') Criar
  
   .container.col-lg-10.col-xs-12
-    .row
+    .row-lg-12
+      p
+      br
       table.table.table-striped.table-hover.table-responsive.table-condensed
         thead
           tr.info

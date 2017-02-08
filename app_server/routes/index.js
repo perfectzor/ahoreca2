@@ -82,8 +82,8 @@ router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'
 
 /* Clients pages */
 router.get('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.clientInfo);
-router.get('/client/new', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
 router.get('/client/detail/:clientvat', user.can('access collaborator area'), isAuthenticated, ctrlClients.clientDetail);
+router.post('/client/:clientvat', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
 
 
 /* Leads pages */

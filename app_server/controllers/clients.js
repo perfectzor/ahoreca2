@@ -7,6 +7,22 @@ if (process.env.NODE_ENV === 'production') {
     apiOptions.server = "https://ahoreca.herokuapp.com";
 }
 
+var _showError = function (req, res, status) {
+    var title, content;
+    if (status === 404) {
+        title = "404, page not found";
+        content = "Oh dear. Looks like we can't find this page. Sorry.";
+    } else {
+        title = status + ", something's gone wrong";
+        content = "Something, somewhere, has gone just a little bit wrong.";
+    }
+    res.status(status);
+    res.render('generic-text', {
+        title: title,
+        content: content
+    });
+};
+
 var renderClientspage = function(req, res, responseBody) {
     res.render('clients-list', 
         {
@@ -115,5 +131,40 @@ module.exports.clientDetail = function(req, res) {
         }
     );
 }
+module.exports.addClient = function (req, res) {
+    var requestOptions, path, clientvat, postdata;
+    clientvat = req.params.clientvat;
+    path = '/api/clients/' + clientvat;
+    postdata = {
+        name: req.body.name,
+        clientvat: req.body.clientvat,
+        cae: req.body.cae,
+        address: req.body.address,
+        telephone: req.body.telephone,
+        email: req.body.email,
+        subscription: req.body.subscription
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "POST",
+        json: postdata
+    };
+    if (!postdata.name || !postdata.clientvat) {
+        res.redirect('/client/');
+    } else {
+        request(
+            requestOptions,
+            function (err, response, body) {
+                if (response.statusCode === 201) {
+                    res.redirect('/client');
+                } else if (response.statusCode === 400 && body.name && body.name === "ValidationError") {
+                    res.redirect('/client');
+                } else {
+                    _showError(req, res, response.statusCode);
+                }
+            }
+        );
+    }
+};
 
 
