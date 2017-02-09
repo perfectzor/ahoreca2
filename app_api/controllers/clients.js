@@ -52,36 +52,28 @@ module.exports.clientsUpdateOne = function (req, res) {
 };
 
 module.exports.clientsDeleteOne = function (req, res) {
-    sendJsonResponse(res, 200, { "status": "success" });
-};
-
-
-var AddClient = function (req, res, client) {
+        
     
-    if (!client) {
-        sendJsonResponse(res,
-            404,
+        Cli
+            .findOneAndRemove({ clientvat: req.body.clientvat },
+            function(err, client)
             {
-                "message": "no client data found"
+                if (!client) {
+                    sendJsonResponse(res, 404, { "message": "client not found" });
+                    return;
+                } else if (err) {
+                    sendJsonResponse(res, 404, err);
+                    return;
+                }
+                sendJsonResponse(res, 200, { "message": "Cliente deleted" });
+                
             });
-    } else {
-
-        client.save(function(err, client) {
-            if (err) {
-                sendJsonResponse(res, 400, err);
-            } else {
-                client.name = req.body.name;
-                client.clientvat = req.body.clientvat;
-                client.email = req.body.email;
-                client.cae = req.body.cae;
-                client.address = req.body.address;
-                client.telephone = req.body.telephone;
-                client.subscription = req.body.subscription;
-               
-            }
-        });
-    }
+        
+    
 };
+
+
+
 module.exports.addClient = function(req, clientvat, done) {
 
     Cli.findOne({ clientvat: req.body.clientvat },

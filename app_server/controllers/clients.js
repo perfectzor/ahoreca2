@@ -83,9 +83,7 @@ module.exports.leadsInfo = function (req, res) {
         }
     );
 }
-module.exports.addClient = function(req, res){
-    res.render('new-client', { path: '/client', title: 'Add new client' });
-};
+
 
 
 
@@ -132,9 +130,8 @@ module.exports.clientDetail = function(req, res) {
     );
 }
 module.exports.addClient = function (req, res) {
-    var requestOptions, path, clientvat, postdata;
-    clientvat = req.params.clientvat;
-    path = '/api/clients/' + clientvat;
+    var requestOptions, path, postdata;
+    path = '/api/clients/' ;
     postdata = {
         name: req.body.name,
         clientvat: req.body.clientvat,
@@ -155,9 +152,38 @@ module.exports.addClient = function (req, res) {
         request(
             requestOptions,
             function (err, response, body) {
-                if (response.statusCode === 201) {
+                if (response.statusCode === 404) {
                     res.redirect('/client');
                 } else if (response.statusCode === 400 && body.name && body.name === "ValidationError") {
+                    res.redirect('/client');
+                } else {
+                    _showError(req, res, response.statusCode);
+                }
+            }
+        );
+    }
+};
+
+module.exports.deleteClient = function (req, res) {
+    var requestOptions, path, postdata;
+    path = '/api/clients/';
+    postdata = {
+        clientvat: req.body.clientvat
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "DELETE",
+        json: postdata
+    };
+    if (!postdata.clientvat) {
+        res.redirect('/client/');
+    } else {
+        request(
+            requestOptions,
+            function (err, response, body) {
+                if (response.statusCode === 200) {
+                    res.redirect('/client');
+                } else if (response.statusCode === 400 && body.clientvat === "ValidationError") {
                     res.redirect('/client');
                 } else {
                     _showError(req, res, response.statusCode);

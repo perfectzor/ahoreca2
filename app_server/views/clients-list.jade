@@ -4,29 +4,29 @@ block content
 
   .container.col-lg-10.col-xs-12
     .row-lg-12
-      .col-lg-12
-        button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#myModal') Novo
-        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .col-lg-1
+        button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#addClientModal') Novo
+        #addClientModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
           .modal-dialog
             .modal-content
               .modal-header
                 button.close(type='button', data-dismiss='modal')
                  span(aria-hidden='true') ×
                  span.sr-only Close
-                h4#myModalLabel.modal-title Novo Cliente
+                h4#addClientModal.modal-title Novo Cliente
               .modal-body
                 form(class='form-signup', action="", method='POST')
                   .row
                     .col-lg-12
                       h4.control-label(for='inputName') Nome:
-                        input#inputUsername.form-control(type='text', name='name' class='form-control', placeholder='Nome',required, autofocus)
+                        input#inputname.form-control(type='text', name='name' class='form-control', placeholder='Nome',required, autofocus)
                   .row
                     .col-lg-6
                       h4.control-label(for='inputVat') NIF:
-                        input#inputPassword.form-control(type='text', name='clientvat' class='form-control', placeholder='NIF',required)
+                        input#inputclientvat.form-control(type='number', name='clientvat', min='100000000', max='999999999', class='form-control', placeholder='NIF',required)
                     .col-lg-6
                       h4.control-label(for='inputCAE') CAE:
-                        input#inputEmail.form-control(type='text', name='cae' class='form-control', placeholder='CAE')
+                        input#inputcae.form-control(type='text', name='cae' class='form-control', placeholder='CAE')
                   .row
                     .col-lg-12
                       h4.control-label(for='inputEmail') Email:
@@ -34,11 +34,11 @@ block content
                   .row
                     .col-lg-12
                       h4.control-label(for='inputAddress') Morada:
-                        input#inputEmail.form-control(type='text', name='address' class='form-control', placeholder='Morada',required)
+                        input#inputAddress.form-control(type='text', name='address' class='form-control', placeholder='Morada',required)
                   .row
                     .col-lg-12
                       h4.control-label(for='inputTelephone') Telefone:
-                        input#inputEmail.form-control(type='text', name='telephone' class='form-control', placeholder='Telefone',required)
+                        input#inputtelephone.form-control(type='number', name='telephone' class='form-control', placeholder='Telefone',required)
                   .row
                     .col-lg-12
                       h4.control-label(for='inputSubscription') Subscrição:
@@ -49,7 +49,24 @@ block content
                           option Anual
                   .row
                   button.btn.btn-primary(type='submit') Criar
- 
+      .col-lg-1
+        button.btn.btn-danger.btn-md(data-toggle='modal', data-target='#deleteClientModal') Remover
+        #deleteClientModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal')
+                 span(aria-hidden='true') ×
+                 span.sr-only Close
+                h4#deleteClientModal.modal-title Remover Cliente
+              .modal-body
+                form(action="?_method=DELETE", method='POST')
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputVat') NIF:
+                        input#inputvat.form-control(type='number', name='clientvat', min='100000000', max='999999999' class='form-control', placeholder='NIF',required, autofocus)
+                  .row
+                  button.btn.btn-primary(type='submit') Remover
   .container.col-lg-10.col-xs-12
     .row-lg-12
       p

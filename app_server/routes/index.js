@@ -78,16 +78,20 @@ router.get('/profile', isAuthenticated,ctrlHome.profile);
 
 /* Users pages */
 router.get('/user', isAuthenticated, user.can('access admin page'), ctrlUsers.userInfo);
+router.delete('/user', isAuthenticated, user.can('access admin page'), ctrlUsers.deleteUser);
 router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'), ctrlUsers.userDetail);
 
 /* Clients pages */
 router.get('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.clientInfo);
 router.get('/client/detail/:clientvat', user.can('access collaborator area'), isAuthenticated, ctrlClients.clientDetail);
-router.post('/client/:clientvat', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
+router.post('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
+router.delete('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.deleteClient);
 
 
 /* Leads pages */
 router.get('/lead', isAuthenticated, user.can('access collaborator area'), ctrlLeads.leadInfo);
+router.post('/lead', isAuthenticated, user.can('access collaborator area'), ctrlLeads.addLead);
+router.delete('/lead', isAuthenticated, user.can('access collaborator area'), ctrlLeads.deleteLead);
 router.get('/lead/detail/:_id', user.can('access collaborator area'), isAuthenticated, ctrlLeads.leadDetail);
 router.post('/lead/detail/:leadid', user.can('access collaborator area'), isAuthenticated, ctrlLeads.AddComment);
 

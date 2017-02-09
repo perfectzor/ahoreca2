@@ -12,25 +12,25 @@ var ctrlReports = require('../controllers/reports');
 /*  Users pages */
 router.get('/users', ctrlUsers.usersInfo);
 router.post('/users', ctrlUsers.addUser);
+router.delete('/users', ctrlUsers.usersDeleteOne);
 router.get('/users/:userid', ctrlUsers.usersReadOne);
 router.put('/users/:userid', ctrlUsers.usersUpdateOne);
-router.delete('/users/:userid', ctrlUsers.usersDeleteOne);
 
 
 /* Clients pages */
 router.get('/clients', ctrlClients.clientsInfo);
 router.post('/clients/', ctrlClients.addClient);
+router.delete('/clients/', ctrlClients.clientsDeleteOne);
 router.get('/clients/:clientid', ctrlClients.clientsReadOne);
 router.put('/clients/:clientid', ctrlClients.clientsUpdateOne);
-router.delete('/clients/:clientid', ctrlClients.clientsDeleteOne);
 
 /* Leadss pages */
 router.get('/leads', ctrlLeads.leadsInfo);
 router.post('/leads', ctrlLeads.addLead);
+router.delete('/leads', ctrlLeads.deleteLead);
 router.post('/leads/:leadid', ctrlLeads.commentsCreate);
 router.get('/leads/:leadid', ctrlLeads.leadsReadOne);
 router.put('/leads/:leadid', ctrlLeads.leadsUpdateOne);
-router.delete('/leads/:leadid', ctrlLeads.leadsDeleteOne);
 
 
 
