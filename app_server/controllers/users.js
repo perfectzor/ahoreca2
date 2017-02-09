@@ -78,5 +78,33 @@ module.exports.userDetail = function(req, res) {
         }
     );
 }
+module.exports.deleteUser = function (req, res) {
+    var requestOptions, path, postdata;
+    path = '/api/users/';
+    postdata = {
+        username: req.body.username
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "DELETE",
+        json: postdata
+    };
+    if (!postdata.username) {
+        res.redirect('/user/');
+    } else {
+        request(
+            requestOptions,
+            function (err, response, body) {
+                if (response.statusCode === 200) {
+                    res.redirect('/user');
+                } else if (response.statusCode === 400 && body.username === "ValidationError") {
+                    res.redirect('/user');
+                } else {
+                    _showError(req, res, response.statusCode);
+                }
+            }
+        );
+    }
+};
 
 

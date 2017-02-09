@@ -55,6 +55,22 @@ module.exports.usersUpdateOne = function (req, res) {
 };
 
 module.exports.usersDeleteOne = function (req, res) {
-    sendJsonResponse(res, 200, { "status": "success" });
+    
+    
+    Use
+        .findOneAndRemove({ username: req.body.username },
+         function (err, user) {
+        if (!user) {
+            sendJsonResponse(res, 404, { "message": "User not found" });
+            return;
+        } else if (err) {
+            sendJsonResponse(res, 404, err);
+            return;
+        }
+        sendJsonResponse(res, 200, { "message": "User deleted" });
+                
+    });
+        
+    
 };
 

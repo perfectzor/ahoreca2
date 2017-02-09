@@ -4,7 +4,7 @@ block content
 
   .container.col-lg-10.col-xs-12
     .row-lg-12
-      .col-lg-12
+      .col-lg-1
         button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#myModal') Novo
         #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
           .modal-dialog
@@ -27,6 +27,24 @@ block content
                         input#inputEmail.form-control(type='text', name='email' class='form-control', placeholder='E-mail',required)
                   .row
                   button.btn.btn-primary(type='submit') Registar
+      .col-lg-1
+        button.btn.btn-danger.btn-md(data-toggle='modal', data-target='#deleteUserModal') Remover
+        #deleteUserModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal')
+                 span(aria-hidden='true') ×
+                 span.sr-only Close
+                h4#deleteUserModal.modal-title Remover Utilizador
+              .modal-body
+                form(action="?_method=DELETE", method='POST')
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputname') Nome:
+                        input#inputname.form-control(type='text', name='username', class='form-control', placeholder='Nome',required, autofocus)
+                  .row
+                  button.btn.btn-primary(type='submit') Remover
   .container.col-lg-10.col-xs-12 
     .row-lg-12
       p
