@@ -8,10 +8,10 @@ var commentsSchema = new mongoose.Schema({
 });
 
 var leadsSchema = new mongoose.Schema({
-    number: { type: Number, required: true },
+    number: { type: Number},
     name: { type: String, required: true },
     clientvat: { type: Number, required: true },
-    cae: { type: Number, required: false },
+    cae: { type: String, required: false },
     address: { type: String, required: true },
     telephone: { type: Number, required: false },
     email: { type: String, required: true },

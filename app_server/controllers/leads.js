@@ -56,8 +56,38 @@ module.exports.leadInfo = function (req, res) {
 
 
 
-module.exports.addLead = function(req, res){
-    res.render('new-lead', { path: '/lead', title: 'Add new lead' });
+module.exports.addLead = function (req, res) {
+    var requestOptions, path, postdata;
+    path = '/api/leads/';
+    postdata = {
+        name: req.body.name,
+        clientvat: req.body.clientvat,
+        cae: req.body.cae,
+        address: req.body.address,
+        telephone: req.body.telephone,
+        email: req.body.email
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "POST",
+        json: postdata
+    };
+    if (!postdata.name || !postdata.clientvat) {
+        res.redirect('/lead/');
+    } else {
+        request(
+            requestOptions,
+            function (err, response, body) {
+                if (response.statusCode === 404) {
+                    res.redirect('/lead');
+                } else if (response.statusCode === 400 && body.name && body.clientvat === "ValidationError") {
+                    res.redirect('/lead');
+                } else {
+                    _showError(req, res, response.statusCode);
+                }
+            }
+        );
+    }
 };
 
 
@@ -131,6 +161,35 @@ module.exports.AddComment = function(req, res){
                     res.redirect('/lead/detail/' + leadid);
                 } else if (response.statusCode === 400 && body.author && body.author === "ValidationError") {
                     res.redirect('/lead/detail/' + leadid );
+                } else {
+                    _showError(req, res, response.statusCode);
+                }
+            }
+        );
+    }
+};
+
+module.exports.deleteLead = function (req, res) {
+    var requestOptions, path, postdata;
+    path = '/api/leads/';
+    postdata = {
+        clientvat: req.body.clientvat
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "DELETE",
+        json: postdata
+    };
+    if (!postdata.clientvat) {
+        res.redirect('/lead/');
+    } else {
+        request(
+            requestOptions,
+            function (err, response, body) {
+                if (response.statusCode === 200) {
+                    res.redirect('/lead');
+                } else if (response.statusCode === 400 && body.clientvat === "ValidationError") {
+                    res.redirect('/lead');
                 } else {
                     _showError(req, res, response.statusCode);
                 }

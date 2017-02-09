@@ -23,9 +23,46 @@ module.exports.leadsInfo = function (req, res) {
             });
   };
 
-module.exports.addLead = function (req, res) {
-    sendJsonResponse(res, 200, { "status": "success" });
+
+module.exports.addLead = function (req, clientvat, done) {
+
+    Lea.findOne({ clientvat: req.body.clientvat },
+        function(err, lead) {
+            // In case of any error, return using the done method
+            if (err) {
+                console.log('Error ' + err);
+                return done(err);
+            }
+            // already exists
+            if (lead) {
+                console.log('Lead already exists with client vat: ' + clientvat);
+                return done(null, false);
+            } else {
+                // if there is no user with that email
+                // create the user
+                var newLead = new Lea();
+
+                // set the user's local credentials
+                newLead.name = req.body.name;
+                newLead.clientvat = req.body.clientvat;
+                newLead.email = req.body.email;
+                newLead.cae = req.body.cae;
+                newLead.address = req.body.address;
+                newLead.telephone = req.body.telephone;
+
+                // save the user
+                newLead.save(function(err) {
+                    if (err) {
+                        console.log('Error in Saving Lead: ' + err);
+                        throw err;
+                    }
+                    console.log('Lead Registration succesful');
+                    return done(null, newLead);
+                });
+            }
+        })
 };
+
 
 module.exports.leadsReadOne = function (req, res) {
 
@@ -53,9 +90,7 @@ module.exports.leadsUpdateOne = function (req, res) {
     sendJsonResponse(res, 200, { "status": "success" });
 };
 
-module.exports.leadsDeleteOne = function (req, res) {
-    sendJsonResponse(res, 200, { "status": "success" });
-};
+
 
 var AddComment = function(req, res, lead) {
     if (!lead) {
@@ -99,5 +134,24 @@ module.exports.commentsCreate = function(req, res) {
             "message": "Not found, leadid required"
         });
     }
+};
+module.exports.deleteLead = function (req, res) {
+
+
+    Lea
+        .findOneAndRemove({ clientvat: req.body.clientvat },
+        function (err, lead) {
+            if (!lead) {
+                sendJsonResponse(res, 404, { "message": "Lead not found" });
+                return;
+            } else if (err) {
+                sendJsonResponse(res, 404, err);
+                return;
+            }
+            sendJsonResponse(res, 200, { "message": "Lead deleted" });
+
+        });
+
+
 };
 
