@@ -1,4 +1,5 @@
 var express = require('express');
+var methodOverride = require('method-override')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -18,6 +19,8 @@ var routesApi = require('./app_api/routes/index');
 
 var app = express();
 
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');
