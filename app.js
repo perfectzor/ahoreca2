@@ -10,12 +10,15 @@ var initPassport = require('./passport/init');
 require('./app_api/models/db');
 
 
+
 var users = require('./app_server/routes/users');
 var passport = require('passport');
 var connectRoles = require('connect-roles');
 var expressSession = require('express-session');
 var routes = require('./app_server/routes/index')(passport);
 var routesApi = require('./app_api/routes/index');
+
+
 
 var app = express();
 
@@ -44,6 +47,8 @@ app.use(passport.session());
 // and displaying in templates
 
 app.use(flash());
+
+
 
 // Initialize Passport
 

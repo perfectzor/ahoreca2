@@ -1,7 +1,7 @@
 extends layout
 
 block content
- 
+   
  .container.col-lg-10
     .row-lg-10
       .col-lg-10.col-md-6.col-xs-12
@@ -24,8 +24,8 @@ block content
       .col-lg-10.col-md-6.col-xs-12
         .tab-content
           .tab-pane.active(id='header')
-            .row-lg-10
-              .col-lg-10
+            .row-lg-12
+              .col-lg-12
                 br
                 h4 NOME: #{report.name}
                 h4 NIF: #{report.reportvat}
@@ -34,13 +34,52 @@ block content
                 h4 CONTATOS: TEL: #{report.phone} FAX: #{report.fax}
           .tab-pane(id='summary')
             .row-lg-12
-              .col-lg-12
+              .col-lg-5
                 br
-                h4 CAPITAL SOCIAL: #{report.sharecapital} 
-                h4 CONSTITUIÇÃO: #{report.date}
-                h4 FORMA JURÍDICA: #{report.type}
-                h4 SÓCIO-GERENTE: #{report.manager}
-              .col-lg-12
+                h4 VALOR A AVALIAR: 5.000,00€
+                h4 OPINIAO DE CRÉDITO
+              .col-lg-7
+                br
+                h4 DATA DA CONSTITUIÇÃO DA SOCIEDADE: #{report.date}
+                h4 FORMA JURÍDICA DA SOCIEDADE: #{report.type}
+                h4 SÓCIO-GERENTE/ADMINISTRADOR: #{report.manager}
+                br
+                h4 VALOR DO CAPITAL SOCIAL ATUAL: #{report.sharecapital} 
+                table.table.table-striped.table-hover
+                   thead
+                    tr
+                      th DENOMINAÇÃO ACIONISTAS/SÓCIOS
+                      td VALOR
+                      td % 
+                   tbody
+                table.table.table-striped.table-hover
+                   thead
+                    tr
+                      th SITUAÇÃO CONTRIBUTIVA
+                   tbody
+                    tr
+                     td Autoridade Tributária e Aduaneira
+                     td Regular
+                    tr
+                     td Segurança Social
+                     td Regular     
+
+                table.table.table-striped.table-hover
+                  thead
+                   tr
+                     th AÇÕES JUDICIAIS INTENTADAS CONTRA A ENTIDADE
+                  tbody
+                   tr
+                    td Autor
+                    td Ano
+                    td Em aberto
+                    td Resolvida
+                   tr
+                    td 
+                    td 
+                    td
+                    td   
+              
                 table.table.table-striped.table-hover
                   thead
                     tr
@@ -84,11 +123,7 @@ block content
                        -for (var i = 0; i < report.data.length; i++){
                           td.text-center= report.data[i].liabilities
                        -}
-                 .chart-demo
-                  h2.title Doughnut Chart
-                  canvas#doughnutChart(width='640', height='400')
                 
-                   
 
                  table.table.table-striped.table-hover
                   thead                   
@@ -130,6 +165,302 @@ block content
                        -for (var i = 0; i < report.data.length; i++){
                           td.text-center= report.data[i].imediateliquidity
                        -}
-  
-  script(src='/node_modules/chart.js/dist/Chart.bundle.min.js') 
-  
+          .tab-pane(id='profitability')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RENDIBILIDADE DE EXPLORAÇÃO
+                       -for (var i = 0; i < report.data.length; i++){
+                          th.text-center= report.data[i].year
+                       -}
+                  tbody
+                    tr
+                      td ROI com ativo económico(Ativo fixo+NFM)
+                    tr
+                      td MB/VN(peso dos custos variáveis)
+                    tr
+                      td RO/MB(peso dos custos fixos)
+                    tr
+                      td Rotação do Ativo
+                    tr
+                      td  
+                    tr
+                      td Rendibilidade das Vendas
+                    tr
+                      td Rotação das Vendas
+                    tr
+                      td  
+                    tr
+                      td EBITDA/VN
+                    tr
+                      td EBIT/VN
+                    tr
+                      td RAI/VN
+                    tr
+                      td RL/VN
+                    tr
+                      td
+                    tr
+                      th RENDIBILIDADE FINANCEIRA
+                    tr
+                      td Alavancagem Financeira(>1)
+                    tr
+                      td Multiplicador do Ativo
+                    tr
+                      td Custo médio do Passivo
+                    tr
+                      td Custo médio do Passivo Remunerado
+                    tr
+                      td
+                    tr
+                      th RENDIBILIDADE FISCAL
+                    tr
+                      td Rendibilidade Fiscal
+                    tr
+                      td
+                    tr
+                      th OUTROS RÁCIOS DE RENDIBILIDADE
+                    tr
+                      td Rendibilidade do Capital Próprio (ROE)
+                    tr
+                      td Rendibilidade do Investimento (ROI)
+                    tr
+                      td Rendibilidade do Ativo (ROA)
+                    tr
+                      td Rendibilidade Económica (RL + Encargos Fin.)
+                    tr
+                      td Cash-Flow/Ativo
+            .row-lg-12
+              .col-lg-12
+                h4 Evolução do Volume de Negócios
+                canvas#myChart(style='width:100%; height:800px;')
+                script(src="/javascripts/Chart.min.js")
+                script.
+                    var ctx = document.getElementById("myChart");
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ["2013", "2014", "2015"],
+                            datasets: [
+                                {
+                                type: 'bar',
+                                label: 'Volume de Negócios',
+                                data: [8543673, 11380328, 12128713],
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(54, 162, 235, 1)'
+                                ],
+                                borderWidth: 1
+                                },{
+                                type: 'line',
+                                label: 'Média',
+                                data: [10684238, 10684238, 10684238],
+                                fill: false,
+                                backgroundColor: [
+                                    'rgba(255, 0, 0, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 0, 0, 1)'
+                                ],
+                                borderWidth: 1
+                                }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero:true
+                                        }
+                                    }]
+                                }
+                            }
+                    }); 
+            .row-lg-12
+              .col-lg-12
+                h4 Estructura de Custos por Ano
+                canvas#costsstructure(style='width:100%; height:800px;')
+                script.
+                    var ctx = document.getElementById("costsstructure");
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ["CMVMC","FSE", "Gastos com o Pessoal", "Outros Gastos e Perdas", "Gastos/Reversões de Depreciações", "Juros ou Gastos Similares Suportados"],
+                            datasets: [
+                                {
+                                label: '2013',
+                                data: [654125, 245125, 90000, 25000, 135000, 180000],
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(54, 162, 235, 1)'
+                                ],
+                                borderWidth: 1
+                                },{
+                                label: '2014',
+                                data: [847512, 345125, 120000, 35000, 156000, 210000],
+                                backgroundColor: [
+                                    'rgba(255, 0, 0, 0.2)',
+                                    'rgba(255, 0, 0, 0.2)',
+                                    'rgba(255, 0, 0, 0.2)',
+                                    'rgba(255, 0, 0, 0.2)',
+                                    'rgba(255, 0, 0, 0.2)',
+                                    'rgba(255, 0, 0, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(255, 0, 0, 1)',
+                                    'rgba(255, 0, 0, 1)'
+                                ],
+                                borderWidth: 1
+                                },
+                                {
+                                label: '2015',
+                                data: [910000, 370125, 160000, 57000, 180000, 250000],
+                                backgroundColor: [
+                                    'rgba(0, 255, 0, 0.2)',
+                                    'rgba(0, 255, 0, 0.2)',
+                                    'rgba(0, 255, 0, 0.2)',
+                                    'rgba(0, 255, 0, 0.2)',
+                                    'rgba(0, 255, 0, 0.2)',
+                                    'rgba(0, 255, 0, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(0, 255, 0, 1)',
+                                    'rgba(0, 255, 0, 1)',
+                                    'rgba(0, 255, 0, 1)',
+                                    'rgba(0, 255, 0, 1)',
+                                    'rgba(0, 255, 0, 1)',
+                                    'rgba(0, 255, 0, 1)'
+                                ],
+                                borderWidth: 1
+                                }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero:true
+                                        }
+                                    }]
+                                }
+                            }
+                    }); 
+          .tab-pane(id='solidity')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RÁCIOS DE SOLVABILIDADE
+                       -for (var i = 0; i < report.data.length; i++){
+                          th.text-center= report.data[i].year
+                       -}
+                  tbody
+                    tr
+                      td Solvabilidade total
+                    tr
+                      td Cobertura de Ativos Não Correntes (CP)
+                    tr
+                      td Cobertura de Ativos Não Correntes (Cperm.)
+                    tr
+                      td Autonomia Financeira
+                    tr
+                      td Autonomia Financeira Alargada
+                    tr
+                      td Debt (MLP) to equity ratio
+                    tr
+                      td Capacidade de endividamento (CP/Cperm)
+                 table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th BALANÇO FUNCIONAL
+                       -for (var i = 0; i < report.data.length; i++){
+                          th.text-center= report.data[i].year
+                       -}
+                  tbody
+                    tr
+                      td Ativo Não Corrente
+                    tr
+                      td Capitais permanentes
+                    tr
+                      td Fundo de maneio líquido
+                    tr
+                      td Necessidades cíclicas
+                    tr
+                      td Recursos cíclicos
+                    tr
+                      td Necessidades de fundo de maneio
+                    tr
+                      td Tesouraria líquida
+                       
+          .tab-pane(id='liquidity')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RÁCIOS DE LIQUIDEZ
+                       -for (var i = 0; i < report.data.length; i++){
+                          th.text-center= report.data[i].year
+                       -}
+                  tbody
+                    tr
+                      td Liquidez geral
+                    tr
+                      td Liquidez reduzida
+                    tr
+                      td Liquidez imediata
+                    tr
+                      th INDICADOR ANUAL
+                    tr
+                      td Saldo Bancos 31dez
+          .tab-pane(id='management')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RÁCIOS DE FUNCIONAMENTO
+                       -for (var i = 0; i < report.data.length; i++){
+                          th.text-center= report.data[i].year
+                       -}
+                  tbody
+                    tr
+                      td Rotação do ativo
+                    tr
+                      td Rotação dos inventários
+                    tr
+                      td Prazo médio de pagamentos (dias)
+                    tr
+                      td Prazo médio de recebimentos (dias)
+                    tr
+                      td Prazo médio líquido entre recebimentos e pagamentos             
+
+

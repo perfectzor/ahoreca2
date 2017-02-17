@@ -16,11 +16,17 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="app_server\views\leads-list.jade" />
+    <Content Include="app_server\views\layout-collaborator.jade" />
+    <Content Include="app_server\views\layout-client.jade" />
+    <Content Include="app_server\views\_includes\sharedHTMLfunctions.jade" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
+    <Compile Include="app_api\controllers\leads.js" />
     <Compile Include="app_api\controllers\clients.js" />
     <Compile Include="app_api\controllers\dashboard.js" />
     <Compile Include="app_api\controllers\reports.js" />
+    <Compile Include="app_server\controllers\leads.js" />
     <Compile Include="public\javascripts\jquery-3.1.1.min.js" />
     <Content Include="public\stylesheets\style.css" />
     <Content Include="public\Images\logo.png" />
@@ -57,6 +63,7 @@
     <Folder Include="app_server\controllers" />
     <Folder Include="app_server\routes" />
     <Folder Include="app_server\views" />
+    <Folder Include="app_server\views\_includes\" />
     <Folder Include="bin" />
     <Folder Include="public" />
     <Folder Include="public\bootstrap" />
