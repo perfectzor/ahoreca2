@@ -1,4 +1,5 @@
 var request = require('request');
+var xlsx = require('node-xlsx');
 
 var apiOptions = {
     server: "http://localhost:3000"
@@ -14,7 +15,8 @@ if (process.env.NODE_ENV === 'production') {
 module.exports.reportInfo = function(req, res){
     res.render('reports-list', { path: '/report',title: 'Relatórios' });
 };
-module.exports.addReport = function(req, res){
+module.exports.addReport = function (req, res) {
+    const workSheetsFromFile = xlsx.parse(`${__dirname}/Tabela.xlsx`);
     res.render('new-report', { path: '/report',title: 'Criar um novo relatório' });
 };
 module.exports.reportDetail = function(req, res){
