@@ -1,0 +1,289 @@
+extends layout
+
+block content
+   
+ .container.col-lg-10
+    .row-lg-10
+      .col-lg-10.col-md-6.col-xs-12
+        ul.nav.nav-tabs
+          li.active
+            a(href='#header', role='tab', data-toggle='tab') Cabeçalho
+          li
+            a(href='#summary', role='tab', data-toggle='tab') Síntese
+          li
+            a(href='#profitability', role='tab', data-toggle='tab') Rendibilidade
+          li
+            a(href='#solidity', role='tab', data-toggle='tab') Solidez
+          li
+            a(href='#liquidity', role='tab', data-toggle='tab') Liquidez
+          li
+            a(href='#management', role='tab', data-toggle='tab') Funcionamento
+ 
+ .container.col-lg-10
+    .row-lg-10
+      .col-lg-10.col-md-6.col-xs-12
+        .tab-content
+          .tab-pane.active(id='header')
+            .row-lg-12
+              .col-lg-12
+                br
+                h4 NOME: #{report[1][0].col_2}
+                h4 NIF: #{report[1][2].col_2}
+                h4 CAE: #{report[1][14].col_2}
+                h4 SEDE: #{report[1][4].col_2} 
+                h4 CONTATO: #{report[1][5].col_2}  
+          .tab-pane(id='summary')
+            .row-lg-12
+              .col-lg-5
+                br
+                h4 VALOR A AVALIAR: 
+                h4 OPINIAO DE CRÉDITO
+              .col-lg-7
+                br
+                h4 DATA DA CONSTITUIÇÃO DA SOCIEDADE: #{report[1][9].col_2}
+                h4 FORMA JURÍDICA DA SOCIEDADE: #{report[1][8].col_2}
+                h4 SÓCIO-GERENTE/ADMINISTRADOR: #{report[1][13].col_2}  
+                br
+                h4 VALOR DO CAPITAL SOCIAL ATUAL: #{report[1][11].col_2} 
+                table.table.table-striped.table-hover
+                   thead
+                    tr
+                      th DENOMINAÇÃO ACIONISTAS/SÓCIOS
+                      td VALOR
+                      td % 
+                   tbody
+                table.table.table-striped.table-hover
+                   thead
+                    tr
+                      th SITUAÇÃO CONTRIBUTIVA
+                   tbody
+                    tr
+                     td Autoridade Tributária e Aduaneira
+                     td Regular
+                    tr
+                     td Segurança Social
+                     td Regular     
+
+                table.table.table-striped.table-hover
+                  thead
+                   tr
+                     th AÇÕES JUDICIAIS INTENTADAS CONTRA A ENTIDADE
+                  tbody
+                   tr
+                    td Autor
+                    td Ano
+                    td Em aberto
+                    td Resolvida
+                   tr
+                    td 
+                    td 
+                    td
+                    td   
+              
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th INDICADORES
+                  tbody
+                    tr
+                      td Vendas e Serviços prestados
+                      td=report[2][6].col_2
+                    tr
+                      td Resultado operacional (EBIT)
+                      td=report[5][131].col_2                 
+                    tr
+                      td Resultado líquido do período
+                      td=report[5][140].col_2
+                    tr
+                      td Cash-flow
+                    tr
+                      td Activo
+                      td=report[4][81].col_2
+                    tr
+                      td Capital próprio
+                      td=report[4][106].col_2
+                    tr
+                      td Passivo
+                      td=report[4][136].col_2
+                
+
+                 table.table.table-striped.table-hover
+                  thead                   
+                    tr
+                      th RÁCIOS FINANCEIROS
+                      td.text-center
+                      td.text-center
+                      td.text-center
+                      td.text-center
+                      td.text-center
+                  tbody 
+                    tr
+                      td Autonomia Financeira (%)
+                      td=report[3][26].col_2
+                    tr
+                      td Taxa de margem económica (%)
+                      td=report[3][15].col_2
+                    tr
+                      td Rendibilidade do Capital Próprio (%)
+                    tr
+                      td Rendibilidade do Ativo (%)
+                    tr
+                      td Liquidez reduzida (LR)
+                    tr
+                      td Liquidez imediata (LI)
+          .tab-pane(id='profitability')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RENDIBILIDADE DE EXPLORAÇÃO
+                  tbody
+                    tr
+                      td ROI com ativo económico(Ativo fixo+NFM)
+                    tr
+                      td MB/VN(peso dos custos variáveis)
+                    tr
+                      td RO/MB(peso dos custos fixos)
+                    tr
+                      td Rotação do Ativo
+                    tr
+                      td  
+                    tr
+                      td Rendibilidade das Vendas
+                    tr
+                      td Rotação das Vendas
+                    tr
+                      td  
+                    tr
+                      td EBITDA/VN
+                    tr
+                      td EBIT/VN
+                    tr
+                      td RAI/VN
+                    tr
+                      td RL/VN
+                    tr
+                      td
+                    tr
+                      th RENDIBILIDADE FINANCEIRA
+                    tr
+                      td Alavancagem Financeira(>1)
+                    tr
+                      td Multiplicador do Ativo
+                    tr
+                      td Custo médio do Passivo
+                    tr
+                      td Custo médio do Passivo Remunerado
+                    tr
+                      td
+                    tr
+                      th RENDIBILIDADE FISCAL
+                    tr
+                      td Rendibilidade Fiscal
+                    tr
+                      td
+                    tr
+                      th OUTROS RÁCIOS DE RENDIBILIDADE
+                    tr
+                      td Rendibilidade do Capital Próprio (ROE)
+                    tr
+                      td Rendibilidade do Investimento (ROI)
+                    tr
+                      td Rendibilidade do Ativo (ROA)
+                    tr
+                      td Rendibilidade Económica (RL + Encargos Fin.)
+                    tr
+                      td Cash-Flow/Ativo
+            .row-lg-12
+              .col-lg-12
+            .row-lg-12
+              .col-lg-12
+                h4 Estructura de Custos por Ano
+          .tab-pane(id='solidity')
+            .row-lg-12
+              .col-lg-12
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RÁCIOS DE SOLVABILIDADE
+                  tbody
+                    tr
+                      td Solvabilidade total
+                    tr
+                      td Cobertura de Ativos Não Correntes (CP)
+                    tr
+                      td Cobertura de Ativos Não Correntes (Cperm.)
+                    tr
+                      td Autonomia Financeira
+                    tr
+                      td Autonomia Financeira Alargada
+                    tr
+                      td Debt (MLP) to equity ratio
+                    tr
+                      td Capacidade de endividamento (CP/Cperm)
+                 table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th BALANÇO FUNCIONAL
+                  tbody
+                    tr
+                      td Ativo Não Corrente
+                    tr
+                      td Capitais permanentes
+                    tr
+                      td Fundo de maneio líquido
+                    tr
+                      td Necessidades cíclicas
+                    tr
+                      td Recursos cíclicos
+                    tr
+                      td Necessidades de fundo de maneio
+                    tr
+                      td Tesouraria líquida
+            .row-lg-12.text-center
+                  h4 Evolução do Balanço
+            .row-lg-12
+              
+          .tab-pane(id='liquidity')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RÁCIOS DE LIQUIDEZ
+                  tbody
+                    tr
+                      td Liquidez geral
+                    tr
+                      td Liquidez reduzida
+                    tr
+                      td Liquidez imediata
+                    tr
+                      th INDICADOR ANUAL
+                    tr
+                      td Saldo Bancos 31dez
+          .tab-pane(id='management')
+            .row-lg-12
+              .col-lg-8
+                br
+                table.table.table-striped.table-hover
+                  thead
+                    tr
+                      th RÁCIOS DE FUNCIONAMENTO
+                  tbody
+                    tr
+                      td Rotação do ativo
+                    tr
+                      td Rotação dos inventários
+                    tr
+                      td Prazo médio de pagamentos (dias)
+                    tr
+                      td Prazo médio de recebimentos (dias)
+                    tr
+                      td Prazo médio líquido entre recebimentos e pagamentos             
+
+

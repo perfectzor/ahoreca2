@@ -1,5 +1,5 @@
 var request = require('request');
-var xlsx = require('node-xlsx');
+var xlsx2json = require('xlsx2json');
 
 var apiOptions = {
     server: "http://localhost:3000"
@@ -15,9 +15,38 @@ if (process.env.NODE_ENV === 'production') {
 module.exports.reportInfo = function(req, res){
     res.render('reports-list', { path: '/report',title: 'Relatórios' });
 };
+
+var renderReportsConfirmpage = function (req, res, jsonArray) {
+    res.render('report-confirm',
+        {
+            path: '/report/confirm',
+            title: 'Report Detail',
+            report: jsonArray
+
+        });
+
+
+};
 module.exports.addReport = function (req, res) {
-    const workSheetsFromFile = xlsx.parse(`${__dirname}/Tabela.xlsx`);
-    res.render('new-report', { path: '/report',title: 'Criar um novo relatório' });
+    xlsx2json((__dirname, 'public/upload/Financeiro2.xlsx'),
+        {
+            dataStartingRow: 2,
+            mapping: {
+                'col_1': 'A',
+                'col_2': 'B'
+            }
+        }
+    ).then(jsonArray => {
+        [
+            [
+                { "col_1": "value 1-A", "col_2": "value 1-B" },
+                { "col_1": "value 2-A", "col_2": "value 2-B" }
+            ]
+        ]
+        renderReportsConfirmpage(req, res, jsonArray);
+    });
+    
+    
 };
 module.exports.reportDetail = function(req, res){
     res.render('report-detail', { path: '/report',title: 'Detalhes' });
