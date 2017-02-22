@@ -3,10 +3,9 @@ extends layout
 block content
   
      .row
-      form.form-horizontal
-          fieldset
-              .form-group
-                  label.col-lg-2.control-label(for='inputFile') File
-                  .col-lg-8
-                      input#inputFile.form-control(type='file')
+                     form(action='/report/confirm', method='post', enctype='multipart/form-data')
+                        label(for='file') Upload File
+                        input(type='file', name='file')
+                        input(type='submit', name='submit', value='submit')
+
  

@@ -1,5 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
+var multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null,  './public/upload')
+    },
+    filename: function (req, file, cb) {
+        cb(null, 'tmpreport.xlsx')
+    }
+})
+
+var upload = multer({ storage: storage })
 var ctrlHome = require('../controllers/home');
 var ctrlUsers = require('../controllers/users');
 var ctrlClients = require('../controllers/clients');
@@ -99,53 +111,52 @@ router.post('/lead/detail/:leadid', user.can('access collaborator area'), isAuth
 router.get('/report', isAuthenticated, ctrlReports.reportInfo);
 router.get('/report/detail/:reportvat', isAuthenticated, ctrlReports.reportDetail);
 router.get('/report/new', isAuthenticated, ctrlReports.addReport);
+router.post('/report/confirm', isAuthenticated, upload.single('file'), ctrlReports.confirmReport);
 
 
-//passport
+    //passport
 
 
 
 
-module.exports = function (passport) {
+    module.exports = function (passport) {
 
-    /* GET login page. */
-    //router.get('/', function (req, res) {
-    //    // Display the Login page with any flash message, if any
-    //    res.render('index', { message: req.flash('message') });
-    //});
+        /* GET login page. */
+        //router.get('/', function (req, res) {
+        //    // Display the Login page with any flash message, if any
+        //    res.render('index', { message: req.flash('message') });
+        //});
 
-    /* Handle Login POST */
-    router.post('/login', passport.authenticate('login', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/',
-        failureFlash: true
-    }));
+        /* Handle Login POST */
+        router.post('/login', passport.authenticate('login', {
+            successRedirect: '/dashboard',
+            failureRedirect: '/',
+            failureFlash: true
+        }));
 
-    /* GET Registration Page */
-    //router.get('/signup', function (req, res) {
-    //    res.render('signup', { message: req.flash('message') });
-    //});
+        /* GET Registration Page */
+        //router.get('/signup', function (req, res) {
+        //    res.render('signup', { message: req.flash('message') });
+        //});
 
-    /* Handle Registration POST */
-    router.post('/signup', passport.authenticate('signup', {
-        successRedirect: '/client',
-        failureRedirect: '/',
-        failureFlash: true
-    }));
+        /* Handle Registration POST */
+        router.post('/signup', passport.authenticate('signup', {
+            successRedirect: '/client',
+            failureRedirect: '/',
+            failureFlash: true
+        }));
 
-    /* GET Home Page */
-    //router.get('/client', isAuthenticated, function (req, res) {
-    //    res.render('client-list', { user: req.user });
-    //});
+        /* GET Home Page */
+        //router.get('/client', isAuthenticated, function (req, res) {
+        //    res.render('client-list', { user: req.user });
+        //});
 
-    /* Handle Logout */
-    router.get('/signout', function (req, res) {
-        req.logout();
-        res.redirect('/');
-    });
+        /* Handle Logout */
+        router.get('/signout', function (req, res) {
+            req.logout();
+            res.redirect('/');
+        });
 
-    return router;
-}
+        return router;
+    }
 
-
-//module.exports = router;

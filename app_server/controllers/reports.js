@@ -27,8 +27,8 @@ var renderReportsConfirmpage = function (req, res, jsonArray) {
 
 
 };
-module.exports.addReport = function (req, res) {
-    xlsx2json((__dirname, 'public/upload/Financeiro2.xlsx'),
+module.exports.confirmReport = function (req, res) {
+    xlsx2json('./public/upload/tmpreport.xlsx',
         {
             dataStartingRow: 2,
             mapping: {
@@ -48,6 +48,17 @@ module.exports.addReport = function (req, res) {
     
     
 };
+module.exports.addReport = function (req, res) {
+    res.render('new-report', { path: '/report', title: 'Relatórios' });
+};
+module.exports.test = function (req, res,next) {
+    // if you're here, the file should have already been uploaded
+
+    console.log(req.file.buffer)
+    console.log(req.file.originalname);// {"someParam": "someValue"}
+    res.send(req.files);
+};
+
 module.exports.reportDetail = function(req, res){
     res.render('report-detail', { path: '/report',title: 'Detalhes' });
 };
