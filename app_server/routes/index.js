@@ -95,7 +95,7 @@ router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'
 
 /* Clients pages */
 router.get('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.clientInfo);
-router.get('/client/detail/:clientvat', user.can('access collaborator area'), isAuthenticated, ctrlClients.clientDetail);
+router.get('/client/detail/:_id', user.can('access collaborator area'), isAuthenticated, ctrlClients.clientDetail);
 router.post('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.addClient);
 router.delete('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.deleteClient);
 

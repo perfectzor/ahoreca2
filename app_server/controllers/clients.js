@@ -102,7 +102,7 @@ var renderClientsDetailpage = function (req, res, cliDetail) {
 
 module.exports.clientDetail = function(req, res) {
     var requestOptions, path;
-    path = '/api/clients/'+ req.params.clientvat;
+    path = '/api/clients/detail/'+ req.params._id;
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",

@@ -21,7 +21,7 @@ router.put('/users/:userid', ctrlUsers.usersUpdateOne);
 router.get('/clients', ctrlClients.clientsInfo);
 router.post('/clients/', ctrlClients.addClient);
 router.delete('/clients/', ctrlClients.clientsDeleteOne);
-router.get('/clients/:clientid', ctrlClients.clientsReadOne);
+router.get('/clients/detail/:clientid', ctrlClients.clientsReadOne);
 router.put('/clients/:clientid', ctrlClients.clientsUpdateOne);
 
 /* Leadss pages */

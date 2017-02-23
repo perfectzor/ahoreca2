@@ -16,7 +16,7 @@ module.exports.reportsReadOne = function (req, res) {
 
     if (req.params && req.params.reportid) {
         Rep
-            .findOne({ reportvat: req.params.reportid })
+            .findOne({ _id: req.params.reportid })
             .exec(function (err, report) {
                 console.log(report);
                 if (!report) {

@@ -29,7 +29,7 @@ module.exports.clientsReadOne = function (req, res) {
 
     if (req.params && req.params.clientid) {
         Cli
-            .findOne({ clientvat: req.params.clientid })
+            .findOne({ _id: req.params.clientid })
             .exec(function (err, client) {
                 console.log(client);
                 if (!client) {

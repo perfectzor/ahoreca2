@@ -59,9 +59,6 @@ module.exports.test = function (req, res,next) {
     res.send(req.files);
 };
 
-module.exports.reportDetail = function(req, res){
-    res.render('report-detail', { path: '/report',title: 'Detalhes' });
-};
 
 var renderReportsDetailpage = function (req, res, repDetail) {
     res.render('report-detail',
@@ -77,7 +74,7 @@ var renderReportsDetailpage = function (req, res, repDetail) {
 
 module.exports.reportDetail = function (req, res) {
     var requestOptions, path;
-    path = '/api/reports/' + req.params.reportvat;
+    path = '/api/reports/' +req.params.reportvat;
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",
