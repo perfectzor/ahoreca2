@@ -2,33 +2,37 @@ extends layout
 
 block content
  
-  .container.col-lg-8.col-xs-12
-     .row
-       table.table.table-striped.table-hover.table-responsive.table-condensed
-         thead
-           tr.info
-             th Número
-             th Nome
-             th NIF
-             th Data
-         tbody
-           tr
-             td
-               a(href='/report/detail/508061270') 1
-             td
-               a(href='/report/detail/508061270') SUCCESSWORK LDA
-             td
-               a(href='report/detail/508061270') 508061270
-             td
-               a(href='report/detail/508061270') 12/01/2017
-           tr
-             td 2
-             td Column content
-             td Column content
-             td Column content
-           tr
-             td 3
-             td Column content
-             td Column content
-             td Column content
+  .container.col-lg-10.col-xs-12
+        .panel.panel-info.panel-table
+          .panel-heading
+            .row
+              .col.col-xs-6
+                h3.panel-title Lista
+          .panel-body
+            table.table.table-striped.table-bordered.table-list
+              thead
+                tr
+                  th.hidden-xs ID
+                  th Nome
+                  th NIF
+                  th Data
+              tbody
+                each report in reports
+                  tr
+                    td.hidden-xs=report.number
+                    td
+                     a(href="/report/detail/#{report._id}")= report.name
+                    td=report.reportvat
+                    td=report.createdon
+          .panel-footer
+            .row
+              .col-lg-12
+                ul.pagination.hidden-xs.pull-right
+                  li
+                    a(href='#') 1
+                ul.pagination.visible-xs.pull-right
+                  li
+                    a(href='#') «
+                  li
+                    a(href='#') »
 

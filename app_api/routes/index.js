@@ -37,6 +37,7 @@ router.put('/leads/:leadid', ctrlLeads.leadsUpdateOne);
 
 /* Reports pages */
 router.get('/reports/:reportid', ctrlReports.reportsReadOne);
+router.get('/reports/', ctrlReports.reportsList);
 router.post('/reports', ctrlReports.addReport);
 router.put('/reports/:reportid', ctrlReports.reportsUpdateOne);
 router.delete('/reports/:reportid', ctrlReports.reportsDelete);

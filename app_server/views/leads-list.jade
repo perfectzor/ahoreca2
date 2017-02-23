@@ -4,9 +4,8 @@ block content
 
   .container.col-lg-10.col-xs-12
     .row-lg-12
-      .col-lg-1
-        button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#myModal') Novo
-        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .col-lg-1        
+        #newLeadModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
           .modal-dialog
             .modal-content
               .modal-header
@@ -37,7 +36,6 @@ block content
                   .row
                   button.btn.btn-primary(type='submit') Criar
       .col-lg-1
-        button.btn.btn-danger.btn-md(data-toggle='modal', data-target='#deleteLeadModal') Remover
         #deleteLeadModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
           .modal-dialog
             .modal-content
@@ -55,24 +53,38 @@ block content
                   .row
                   button.btn.btn-primary(type='submit') Remover
   .container.col-lg-10.col-xs-12
-    .row-lg-12
-      p
-      br
-      table.table.table-striped.table-hover.table-responsive.table-condensed
-        thead
-          tr.info
-            th Número
-            th Nome
-            th NIF
-            th E-mail
-            th Data
-        tbody
-          each lead in leads
-            tr
-                td=lead.number
-                td
-                 a(href="/lead/detail/#{lead._id}")= lead.name
-                td=lead.clientvat
-                td=lead.email
-                td Column content
-
+        .panel.panel-info.panel-table
+          .panel-heading
+            .row
+              .col.col-xs-6
+                h3.panel-title Lista
+              .col.col-xs-6.text-right
+                button.btn.btn-sm.btn-danger.btn-create(data-toggle='modal', data-target='#deleteLeadModal') Remover
+                button.btn.btn-sm.btn-primary.btn-create(data-toggle='modal', data-target='#newLeadModal') Criar Novo
+          .panel-body
+            table.table.table-striped.table-bordered.table-list
+              thead
+                tr
+                  th.hidden-xs ID
+                  th Nome
+                  th NIF
+                  th E-mail
+              tbody
+                each lead in leads
+                  tr
+                    td.hidden-xs=lead.number
+                    td
+                     a(href="/lead/detail/#{lead._id}")= lead.name
+                    td=lead.clientvat
+                    td=lead.email
+          .panel-footer
+            .row
+              .col-lg-12
+                ul.pagination.hidden-xs.pull-right
+                  li
+                    a(href='#') 1
+                ul.pagination.visible-xs.pull-right
+                  li
+                    a(href='#') «
+                  li
+                    a(href='#') »

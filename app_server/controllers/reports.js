@@ -8,12 +8,36 @@ if (process.env.NODE_ENV === 'production') {
     apiOptions.server = "https://ahoreca.herokuapp.com";
 }
 
+var renderReportspage = function (req, res, responseBody) {
+    res.render('reports-list',
+        {
+            path: '/report',
+            user: req.user,
+            title: 'Relatórios',
+            reports: responseBody
+            //console.log(reports);
+        });
 
 
+};
 
 
 module.exports.reportInfo = function(req, res){
-    res.render('reports-list', { path: '/report',title: 'Relatórios' });
+    var requestOptions, path;
+    path = '/api/reports';
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "GET",
+        json: true,
+        qs: {
+        }
+    };
+    request(
+        requestOptions,
+        function (err, response, body) {
+            renderReportspage(req, res, body);
+        }
+    );
 };
 
 var renderReportsConfirmpage = function (req, res, jsonArray) {
@@ -93,6 +117,7 @@ module.exports.reportDetail = function (req, res) {
                 fax: body.fax,
                 email: body.email,
                 web: body.web,
+                createdon: body.createdon,
                 data: [body.data]
                 
         };

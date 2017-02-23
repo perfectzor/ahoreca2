@@ -42,5 +42,20 @@ module.exports.reportsDelete = function (req, res) {
 module.exports.reportsDeleteOne = function (req, res) {
     sendJsonResponse(res, 200, { "status": "success" });
 };
+module.exports.reportsList = function (req, res) {
+    Rep
+        .find({}, 'name reportvat createdon')
+        .exec(function (err, report) {
+            console.log(report);
+            if (!report) {
+                sendJsonResponse(res, 404, { "message": "reports not found" });
+                return;
+            } else if (err) {
+                sendJsonResponse(res, 404, err);
+                return;
+            }
+            sendJsonResponse(res, 200, report);
+        });
+};
 
 
