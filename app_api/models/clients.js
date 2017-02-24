@@ -1,8 +1,8 @@
 ﻿var mongoose = require('mongoose');
 
 var reportsSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    reportvat: { type: Number, required: true }
+    reportid: { type: String, required: true },
+    vat: { type: Number, required: true }
     
 });
 

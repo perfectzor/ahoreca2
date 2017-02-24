@@ -19,7 +19,7 @@ block content
               tbody
                 each report in reports
                   tr
-                    td.hidden-xs=report.number
+                    td.hidden-xs=report._id
                     td
                      a(href="/report/detail/#{report._id}")= report.name
                     td=report.reportvat

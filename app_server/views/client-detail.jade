@@ -47,5 +47,14 @@ block content
                    -for (var i = 0; i < client.reports.length; i++){
                          tr
                             td 
-                              a(href="/report/detail/#{client.reports[i]._id}")= client.reports[i].vat
+                              a(href="/report/detail/#{client.reports[i].reportid}")= client.reports[i].vat
                    -}        
+               .col-lg-6
+                 form(action="report/add", method='POST')
+                  .row
+                    .col-lg-12
+                      h4.control-label(for='inputVat') NIF:
+                        input#clientid.form-control(name="clientid" value="#{client._id}" rows='5' readonly).hidden
+                        input#inputvat.form-control(type='number', name='vat', min='100000000', max='999999999' class='form-control', placeholder='NIF',required)
+                        input#inputreportid.form-control(type='text', name='reportid', class='form-control', placeholder='Report ID',required)
+                       button.btn.btn-primary(type='submit') Adicionar

@@ -12,6 +12,9 @@ module.exports.addReport = function (req, res) {
     sendJsonResponse(res, 200, { "status": "success" });
 };
 
+
+
+
 module.exports.reportsReadOne = function (req, res) {
 
     if (req.params && req.params.reportid) {
@@ -57,5 +60,3 @@ module.exports.reportsList = function (req, res) {
             sendJsonResponse(res, 200, report);
         });
 };
-
-

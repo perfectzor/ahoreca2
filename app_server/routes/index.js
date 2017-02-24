@@ -112,6 +112,7 @@ router.get('/report', isAuthenticated, ctrlReports.reportInfo);
 router.get('/report/detail/:reportvat', isAuthenticated, ctrlReports.reportDetail);
 router.get('/report/new', isAuthenticated, ctrlReports.addReport);
 router.post('/report/confirm', isAuthenticated, upload.single('file'), ctrlReports.confirmReport);
+router.post('/client/detail/report/add', isAuthenticated, ctrlReports.addReportClient);
 
 
     //passport

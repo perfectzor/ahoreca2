@@ -113,7 +113,37 @@ module.exports.addClient = function(req, clientvat, done) {
             }
         })
 };
+
+
        
+module.exports.addReport = function (req, res) {
 
-    
+    Cli.findOne({ _id: req.body.clientid, "reports.reportid" : req.body.reportid },
+        function (err, client) {
+            if (err) {
+                sendJsonResponse(res, 500, { "message": "error" });
+                return;
+            }
+            else if (client) {
+                console.log(client);
+                sendJsonResponse(res, 500, { "message": "found client with that report, report not added" });
+                return;
+            }
+            else if (!client) {
+                Cli.findOneAndUpdate(
+                    { _id: req.body.clientid },
+                    { $addToSet: { "reports" : { "reportid": req.body.reportid, "vat": req.body.vat } } },
+                    { "upsert": true, "new": true },
+                    function (err, client) {
+                        // handle here
+                    }
+                );
+                console.log(req.body.reportid);
+                sendJsonResponse(res, 201, { "message": "report added" });
+                return;
+            }
+        })      
 
+
+};
+       

@@ -20,6 +20,7 @@ router.put('/users/:userid', ctrlUsers.usersUpdateOne);
 /* Clients pages */
 router.get('/clients', ctrlClients.clientsInfo);
 router.post('/clients/', ctrlClients.addClient);
+router.post('/clients/reports', ctrlClients.addReport);
 router.delete('/clients/', ctrlClients.clientsDeleteOne);
 router.get('/clients/detail/:clientid', ctrlClients.clientsReadOne);
 router.put('/clients/:clientid', ctrlClients.clientsUpdateOne);
