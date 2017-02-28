@@ -13,9 +13,10 @@ html
          img(src='/images/logo.png')
        .col-lg-10.col-md-10.col-xs-7
           h2=title      
-   .container-fluid      
-       nav.navbar.navbar-default.sidebar(role='navigation')
-        
+   .container-fluid
+     .row
+      .col-lg-1
+       nav.navbar.navbar-default.sidebar(role='navigation').panel-shadow
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-sidebar-navbar-collapse-1')
               span.sr-only Toggle navigation
@@ -26,50 +27,52 @@ html
             ul.nav.navbar-nav
               li(class=path=='/dashboard'?'active':undefined)
                 a(href='/dashboard')
-                  | aHoreca
+                  strong aHoreca
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-home(style='font-size:16px;')
               li(class=path=='/profile'?'active':undefined)
                 a(href='/profile')
-                  | Perfil
+                  strong Perfil
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')  
               li(class=path=='/client'?'active':undefined)
                 a.dropdown-toggle(href='/client', data-toggle='dropdown')
-                  | Clientes
+                  strong Clientes
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')
                 ul.dropdown-menu.forAnimate(role='menu')
                   li
-                    a(href="/client") Lista
+                    a(href="/client")
+                     strong Lista
                   li
-                    a(href='/lead') Potenciais               
+                    a(href='/lead')
+                     strong Potenciais
               li(class=path=='/report'?'active':undefined).dropdown
                 a.dropdown-toggle(href='/report', data-toggle='dropdown')
-                  | Relatórios
+                  strong Relatórios
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-menu-down(style='font-size:16px;')                
                 ul.dropdown-menu.forAnimate(role='menu')
                   li
-                    a(href="/report/list") Lista
+                    a(href="/report/list")
+                     strong Lista
                   li
-                    a(href='/report/new') Novo
+                    a(href='/report/new')
+                     strong Novo
                
               li(class=path=='/user'?'active':undefined).dropdown
                 a.dropdown-toggle(href='/user', data-toggle='dropdown')
-                  | Utilizadores
+                  strong Utilizadores
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-menu-down(style='font-size:16px;')
                 ul.dropdown-menu.forAnimate(role='menu')
                   li
-                    a(href="/user") Lista                        
+                    a(href="/user")
+                     strong Lista
               li(class=path=='/about'?'active':undefined)
                 a(href='/about')
-                  | Sobre
+                  strong Sobre
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-info-sign(style='font-size:16px;')
               li
                 a(href='/signout')
-                  | Sair
+                  strong Sair
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-off(style='font-size:16px;')
-
-         
-
-       block content
+      block content
   footer
      .container  
        .row

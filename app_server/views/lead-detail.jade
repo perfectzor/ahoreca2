@@ -4,22 +4,21 @@ extends layout
 
 block content
 
- .container.col-lg-8
-    .row-lg-8
-      .col-lg-8.col-md-6.col-xs-12
+  .col-lg-11.col-md-10
        .tabbable-line
-         ul.nav.nav-tabs
+         ul.nav.nav-tabs.panel-shadow
            li.active
-             a(href='#header', role='tab', data-toggle='tab') Cabeçalho
+             a(href='#header', role='tab', data-toggle='tab')
+              strong Cabeçalho
            li
-             a(href='#comments', role='tab', data-toggle='tab') Comentários
+             a(href='#comments', role='tab', data-toggle='tab')
+              strong Comentários
            li
-             a(href='#events', role='tab', data-toggle='tab') Eventos
+             a(href='#events', role='tab', data-toggle='tab')
+              strong Eventos
    
- .container.col-lg-10
-    .row-lg-10
-      .col-lg-10.col-md-10.col-xs-12
-         .tab-content
+  .col-lg-11.col-md-10
+         .tab-content.panel-shadow
            .tab-pane.active(id='header')
              .row-lg-12
                .col-lg-12

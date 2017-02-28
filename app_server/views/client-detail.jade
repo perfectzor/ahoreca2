@@ -2,27 +2,23 @@ extends layout
 
 block content
 
- .container.col-lg-8
-    .row-lg-8
-      .col-lg-8.col-md-6.col-xs-12
-       .tabbable-line
-         ul.nav.nav-tabs
+    .col-lg-11
+     .tabbable-line
+         ul.nav.nav-tabs.panel-shadow
            li.active
-             a(href='#header', role='tab', data-toggle='tab') Cabeçalho
+             a(href='#header', role='tab', data-toggle='tab')
+              strong Cabeçalho
            li
-             a(href='#users', role='tab', data-toggle='tab') Utilizadores
+             a(href='#users', role='tab', data-toggle='tab')
+              strong Utilizadores
            li
-             a(href='#subscription', role='tab', data-toggle='tab') Subscrição
+             a(href='#subscription', role='tab', data-toggle='tab')
+              strong Subscrição
            li
-             a(href='#reports', role='tab', data-toggle='tab') Relatórios
-   
- .container.col-lg-8
-    .row-lg-8
-      .col-lg-8.col-md-6.col-xs-12
-         .tab-content
+             a(href='#reports', role='tab', data-toggle='tab')
+              strong Relatórios
+         .tab-content.panel-shadow
            .tab-pane.active(id='header')
-             .row-lg-12
-               .col-lg-12
                  br
                  h4 NOME: #{client.name}
                  h4 NIF: #{client.clientvat}
@@ -31,19 +27,14 @@ block content
                  h4 TELEFONE: #{client.telephone}
                  h4 E-MAIL: #{client.email}
            .tab-pane(id='users')
-             .row-lg-12
-               .col-lg-4
                  br
                  h4 Utilizadores Associados:
            .tab-pane(id='subscription')
-             .row-lg-12
-               .col-lg-4
                  br
                  h4 TIPO: #{client.subscription}
-         
            .tab-pane(id='reports')
-             .row-lg-12
-               .col-lg-6
+             .row
+                .col-lg-2
                  table.table.table-striped.table-hover
                    thead
                      tr
@@ -54,10 +45,8 @@ block content
                             td 
                               a(href="/report/detail/#{client.reports[i].reportid}")= client.reports[i].vat
                    -}        
-               .col-lg-6
-                 form(action="report/add", method='POST')
-                  .row
-                    .col-lg-12
+                .col-lg-2
+                  form(action="report/add", method='POST')
                       h4.control-label(for='inputVat') NIF:
                         input#clientid.form-control(name="clientid" value="#{client._id}" rows='5' readonly).hidden
                         input#inputvat.form-control(type='number', name='vat', min='100000000', max='999999999' class='form-control', placeholder='NIF',required)
