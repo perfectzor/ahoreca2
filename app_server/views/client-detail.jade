@@ -3,14 +3,14 @@ extends layout
 block content
 
  .container.col-lg-8
-   h1= client.name
-
- .container.col-lg-8
     .row-lg-8
       .col-lg-8.col-md-6.col-xs-12
+       .tabbable-line
          ul.nav.nav-tabs
            li.active
              a(href='#header', role='tab', data-toggle='tab') Cabeçalho
+           li
+             a(href='#users', role='tab', data-toggle='tab') Utilizadores
            li
              a(href='#subscription', role='tab', data-toggle='tab') Subscrição
            li
@@ -30,6 +30,11 @@ block content
                  h4 SEDE: #{client.address}
                  h4 TELEFONE: #{client.telephone}
                  h4 E-MAIL: #{client.email}
+           .tab-pane(id='users')
+             .row-lg-12
+               .col-lg-4
+                 br
+                 h4 Utilizadores Associados:
            .tab-pane(id='subscription')
              .row-lg-12
                .col-lg-4

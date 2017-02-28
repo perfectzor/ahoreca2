@@ -5,6 +5,7 @@ block content
   .container.col-lg-8
     .row-lg-8
       .col-lg-8.col-md-6.col-xs-12
+       .tabbable-line
         ul.nav.nav-tabs
           li.active
             a(href='#header', role='tab', data-toggle='tab') Dados
@@ -16,14 +17,7 @@ block content
                 br
                 br
                 br
-                h4 Nome: 
-                h4 Empresa: 
-                h4 E-mail:
-                h4 Utilizador:
-                h4 Mudar Senha:
-            .tab-pane(id='subscription')
-                br
-                br
-                br
-                h4 Número de Relatórios Pedidos:
-                h4 Número de Relatórios Restantes:         
+                h4 Nome: #{user.name}
+                h4 Empresa: #{user.company} 
+                h4 E-mail: #{user.email} 
+                h4 Utilizador: #{user.username}         

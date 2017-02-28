@@ -5,11 +5,9 @@ extends layout
 block content
 
  .container.col-lg-8
-   h1= lead.name
-
- .container.col-lg-8
     .row-lg-8
       .col-lg-8.col-md-6.col-xs-12
+       .tabbable-line
          ul.nav.nav-tabs
            li.active
              a(href='#header', role='tab', data-toggle='tab') Cabeçalho
@@ -49,7 +47,7 @@ block content
                         form.form-horizontal(action="", method="post", role="form")
                          fieldset
                            .form-group                           
-                              .col-lg-6
+                              .col-lg-6.hidden
                                 p Utilizador:
                                 input#author.form-control(name="author" value="#{user.username}" rows='5' readonly) 
                                 
@@ -73,11 +71,22 @@ block content
                        th Autor
                    tbody
                    -for (var i = 0; i < lead.comments.length; i++){
-                         tr
-                            td.col-lg-6=lead.comments[i].text
-                            td.col-lg-3
-                             +formatDate(lead.comments[i].createdOn)
-                            td.col-lg-3=lead.comments[i].author
+                         .container
+                           .row
+                             .col-sm-12
+                               h3=lead.comments[i].author
+                               .row
+                                 .col-sm-1
+                                   .thumbnail
+                                     img.img-responsive.user-photo(src='https://ssl.gstatic.com/accounts/ui/avatar_2x.png')
+                                 .col-sm-5
+                                   .panel.panel-default
+                                     .panel-heading
+                                       strong=lead.comments[i].author  
+                                       span.pull-right.text-muted.text-right
+                                         +formatDate(lead.comments[i].createdOn)
+                                     .panel-body
+                                       p=lead.comments[i].text
                    -}
            .tab-pane(id='events')
              .row-lg-12

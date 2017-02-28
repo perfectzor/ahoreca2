@@ -92,6 +92,7 @@ router.get('/profile', isAuthenticated,ctrlHome.profile);
 router.get('/user', isAuthenticated, user.can('access admin page'), ctrlUsers.userInfo);
 router.delete('/user', isAuthenticated, user.can('access admin page'), ctrlUsers.deleteUser);
 router.get('/user/detail/:userid', isAuthenticated, user.can('access admin page'), ctrlUsers.userDetail);
+router.get('/user/:userid', isAuthenticated, ctrlUsers.userData);
 
 /* Clients pages */
 router.get('/client', isAuthenticated, user.can('access collaborator area'), ctrlClients.clientInfo);
@@ -108,8 +109,9 @@ router.get('/lead/detail/:_id', user.can('access collaborator area'), isAuthenti
 router.post('/lead/detail/:leadid', user.can('access collaborator area'), isAuthenticated, ctrlLeads.AddComment);
 
 /* Reports pages */
-router.get('/report', isAuthenticated, ctrlReports.reportInfo);
-router.get('/report/detail/:reportvat', isAuthenticated, ctrlReports.reportDetail);
+router.get('/report/list', isAuthenticated, ctrlReports.reportInfo);
+router.get('/report/', isAuthenticated, ctrlReports.reportInfo);
+router.get('/report/detail/:reportid', isAuthenticated, ctrlReports.reportDetail);
 router.get('/report/new', isAuthenticated, ctrlReports.addReport);
 router.post('/report/confirm', isAuthenticated, upload.single('file'), ctrlReports.confirmReport);
 router.post('/client/detail/report/add', isAuthenticated, ctrlReports.addReportClient);

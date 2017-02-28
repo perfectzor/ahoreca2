@@ -92,8 +92,9 @@ var renderClientsDetailpage = function (req, res, cliDetail) {
     res.render('client-detail',
         {
             path: '/client',
-            title: 'Client Detail',
-            client: cliDetail
+            client: cliDetail,
+            title: cliDetail.name
+           
             //console.log(clients);
         });
 

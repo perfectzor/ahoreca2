@@ -98,7 +98,7 @@ var renderLeadsDetailpage = function (req, res, leaDetail) {
         {
             path: '/lead',
             user: req.user,
-            title: 'Lead Detail',
+            title: leaDetail.name,
             lead: leaDetail
             //console.log(clients);
         });

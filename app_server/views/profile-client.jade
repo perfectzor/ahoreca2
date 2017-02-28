@@ -5,25 +5,29 @@ block content
   .container.col-lg-8
     .row-lg-8
       .col-lg-8.col-md-6.col-xs-12
+       .tabbable-line
         ul.nav.nav-tabs
           li.active
             a(href='#header', role='tab', data-toggle='tab') Dados
           li
-            a(href='#subscription', role='tab', data-toggle='tab') Plano   
+            a(href='#company', role='tab', data-toggle='tab') Empresa  
     .row-lg-8
        .tab-content
             .tab-pane.active(id='header')
                 br
                 br
                 br
-                h4 Nome: 
-                h4 Empresa: 
-                h4 E-mail:
-                h4 Utilizador:
-                h4 Mudar Senha:
-            .tab-pane(id='subscription')
+                h4 Nome: #{user.name}
+                h4 Empresa: #{user.company} 
+                h4 E-mail: #{user.email} 
+                h4 Utilizador: #{user.username}
+            .tab-pane(id='company')
                 br
                 br
                 br
-                h4 Número de Relatórios Pedidos:
-                h4 Número de Relatórios Restantes:         
+                h4 NOME:
+                h4 NIF:
+                h4 CAE:
+                h4 SEDE:
+                h4 TELEFONE:
+                h4 E-MAIL:         

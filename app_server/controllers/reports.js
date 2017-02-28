@@ -144,7 +144,7 @@ var renderReportsDetailpage = function (req, res, repDetail) {
 
 module.exports.reportDetail = function (req, res) {
     var requestOptions, path;
-    path = '/api/reports/' +req.params.reportvat;
+    path = '/api/reports/'+req.params.reportid;
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",
