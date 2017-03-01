@@ -15,7 +15,7 @@ html
           h2=title      
    .container-fluid
      .row
-      .col-lg-1
+      .col-lg-1.col-md-1.col-sm-1
        nav.navbar.navbar-default.sidebar(role='navigation').panel-shadow
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-sidebar-navbar-collapse-1')
@@ -55,7 +55,6 @@ html
                   li
                     a(href='/report/new')
                      strong Novo
-               
               li(class=path=='/user'?'active':undefined).dropdown
                 a.dropdown-toggle(href='/user', data-toggle='dropdown')
                   strong Utilizadores
@@ -65,7 +64,7 @@ html
                     a(href="/user")
                      strong Lista
               li(class=path=='/about'?'active':undefined)
-                a(href='/about')
+                a(href='about')
                   strong Sobre
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-info-sign(style='font-size:16px;')
               li

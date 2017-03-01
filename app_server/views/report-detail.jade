@@ -21,14 +21,12 @@ block content
  .container.col-lg-10
         .tab-content.panel-shadow
           .tab-pane.active(id='header')
-                br
                 h4 NOME: #{report.name}
                 h4 NIF: #{report.reportvat}
                 h4 CAE: #{report.cae}
                 h4 SEDE: #{report.address}
                 h4 CONTATOS: TEL: #{report.phone} FAX: #{report.fax}
           .tab-pane(id='summary')
-                br
                 h4 VALOR A AVALIAR: 5.000,00€
                 h4 OPINIAO DE CRÉDITO
                 br
@@ -158,7 +156,6 @@ block content
                           td.text-center= report.data[i].imediateliquidity
                        -}
           .tab-pane(id='profitability')
-                br
                 table.table.table-striped.table-hover
                   thead
                     tr
@@ -356,7 +353,6 @@ block content
                             }
                     }); 
           .tab-pane(id='solidity')
-                br
                 table.table.table-striped.table-hover
                   thead
                     tr
@@ -511,7 +507,6 @@ block content
                                 }
                             });
           .tab-pane(id='liquidity')
-                br
                 table.table.table-striped.table-hover
                   thead
                     tr

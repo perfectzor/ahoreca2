@@ -1,5 +1,6 @@
-/* GET reports page */
-module.exports.index = function(req, res){
+/* admin pages*/
+
+module.exports.index = function (req, res) {
     res.render('index', { title: 'aHoreca' });
 };
 
@@ -30,6 +31,5 @@ module.exports.about = function (req, res) {
     else if (req.user.role == "client")
         res.render('about-client', { path: req.path , title: 'About us' });
 };
-
 
 

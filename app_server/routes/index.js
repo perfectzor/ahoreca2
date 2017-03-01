@@ -76,16 +76,19 @@ user.use(function (req) {
     }
 });
 
-/* home pages */
+
+
+/* admin home pages */
 router.get('/', ctrlHome.index);
 router.get('/dashboard', isAuthenticated, ctrlHome.dashboard);
 router.get('/about', isAuthenticated, ctrlHome.about);
+router.get('/profile', isAuthenticated, ctrlHome.profile);
 
 //router.get('/signup', ctrlHome.signup);
 
 
 /* profiles pages */
-router.get('/profile', isAuthenticated,ctrlHome.profile);
+
 
 
 /* Users pages */
@@ -122,20 +125,23 @@ router.post('/client/detail/report/add', isAuthenticated, ctrlReports.addReportC
 
 
 
-    module.exports = function (passport) {
+module.exports = function (passport) {
 
-        /* GET login page. */
-        //router.get('/', function (req, res) {
-        //    // Display the Login page with any flash message, if any
-        //    res.render('index', { message: req.flash('message') });
-        //});
+    /* GET login page. */
+    //router.get('/', function (req, res) {
+    //    // Display the Login page with any flash message, if any
+    //    res.render('index', { message: req.flash('message') });
+    //});
 
-        /* Handle Login POST */
-        router.post('/login', passport.authenticate('login', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/',
-            failureFlash: true
-        }));
+    /* Handle Login POST */
+    router.post('/login', passport.authenticate('login', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/',
+        failureFlash: true
+    }));
+                            
+
+
 
         /* GET Registration Page */
         //router.get('/signup', function (req, res) {

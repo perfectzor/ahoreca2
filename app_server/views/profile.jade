@@ -1,8 +1,7 @@
 extends layout
 
 block content
-
- .col-lg-11.col-md-10
+  .col-lg-10.col-lg-offset-1.col-md-offset-1.col-md-10.col-sm-offset-2.col-sm-9
     .tabbable-line
         ul.nav.nav-tabs.panel-shadow
           li.active
@@ -13,9 +12,6 @@ block content
              strong Plano
         .tab-content.panel-shadow
             .tab-pane.active(id='header')
-                br
-                br
-                br
                 h4 Nome: #{user.name}
                 h4 Empresa: #{user.company} 
                 h4 E-mail: #{user.email} 

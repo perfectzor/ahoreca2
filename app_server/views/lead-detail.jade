@@ -4,8 +4,8 @@ extends layout
 
 block content
 
-  .col-lg-11.col-md-10
-       .tabbable-line
+  .col-lg-10.col-lg-offset-1.col-md-offset-1.col-md-10.col-sm-offset-2.col-sm-9
+      .tabbable-line
          ul.nav.nav-tabs.panel-shadow
            li.active
              a(href='#header', role='tab', data-toggle='tab')
@@ -16,13 +16,8 @@ block content
            li
              a(href='#events', role='tab', data-toggle='tab')
               strong Eventos
-   
-  .col-lg-11.col-md-10
          .tab-content.panel-shadow
            .tab-pane.active(id='header')
-             .row-lg-12
-               .col-lg-12
-                 br
                  h4 NOME: #{lead.name}
                  h4 NIF: #{lead.leadvat}
                  h4 CAE: #{lead.cae}
@@ -30,9 +25,6 @@ block content
                  h4 TELEFONE: #{lead.telephone}
                  h4 E-MAIL: #{lead.email}
            .tab-pane(id='comments')
-             .row-lg-12
-               .col-lg-12
-                 br
                  button.btn.btn-primary.btn-md(data-toggle='modal', data-target='#myModal') Novo
                  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
                   .modal-dialog
@@ -58,10 +50,7 @@ block content
                               .col-lg-12
                                 button.btn.btn-default(type='reset') Apagar
                                 button.btn.btn-primary.pull-right(type='submit') Guardar
-                      
-
-             .row-lg-12
-               .col-lg-12
+           
                  table.table.table-striped.table-hover.table-break
                    thead
                      tr
@@ -88,9 +77,6 @@ block content
                                        p=lead.comments[i].text
                    -}
            .tab-pane(id='events')
-             .row-lg-12
-               .col-lg-12
-                 br
                  h4 TIPO:
          
                

@@ -2,9 +2,7 @@ extends layout
 
 block content
    
- .container.col-lg-10
-    .row-lg-10
-      .col-lg-10.col-md-6.col-xs-12
+    .col-lg-10.col-lg-offset-1.col-md-offset-1.col-md-10.col-sm-offset-2.col-sm-9
        .tabbable-line
         ul.nav.nav-tabs
           li.active
@@ -19,15 +17,10 @@ block content
             a(href='#liquidity', role='tab', data-toggle='tab') Liquidez
           li
             a(href='#management', role='tab', data-toggle='tab') Funcionamento
- 
- .container.col-lg-10
-    .row-lg-10
-      .col-lg-10.col-md-6.col-xs-12
         .tab-content
           .tab-pane.active(id='header')
             .row-lg-12
               .col-lg-12
-                br
                 h4 NOME: #{report[1][0].col_2}
                 h4 NIF: #{report[1][2].col_2}
                 h4 CAE: #{report[1][14].col_2}
@@ -36,11 +29,9 @@ block content
           .tab-pane(id='summary')
             .row-lg-12
               .col-lg-5
-                br
                 h4 VALOR A AVALIAR: 
                 h4 OPINIAO DE CRÉDITO
               .col-lg-7
-                br
                 h4 DATA DA CONSTITUIÇÃO DA SOCIEDADE: #{report[1][9].col_2}
                 h4 FORMA JURÍDICA DA SOCIEDADE: #{report[1][8].col_2}
                 h4 SÓCIO-GERENTE/ADMINISTRADOR: #{report[1][13].col_2}  

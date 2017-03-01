@@ -30,7 +30,11 @@ html
               li(class=path=='/profile'?'active':undefined)
                 a(href='/profile')
                   | Perfil
-                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')             
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-user(style='font-size:16px;')       
+              li(class=path=='/messages'?'active':undefined)
+                a(href='/messages')
+                  | Mensagens
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-envelope(style='font-size:16px;')            
               li(class=path=='/report'?'active':undefined).dropdown
                 a.dropdown-toggle(href='/report', data-toggle='dropdown')
                   | Relatórios
