@@ -11,6 +11,7 @@ var ctrlReports = require('../controllers/reports');
 
 /*  Users pages */
 router.get('/users', ctrlUsers.usersInfo);
+router.get('/users/reports/:userid', ctrlUsers.reportsList);
 router.post('/users', ctrlUsers.addUser);
 router.delete('/users', ctrlUsers.usersDeleteOne);
 router.get('/users/:userid', ctrlUsers.usersReadOne);

@@ -25,15 +25,12 @@ var _showError = function (req, res, status) {
 };
 
 var renderReportspage = function (req, res, responseBody) {
-    res.render('reports-list',
-        {
-            path: '/report',
-            user: req.user,
-            title: 'Relatórios',
-            reports: responseBody
-            //console.log(reports);
-        });
-
+    if (req.user.role == "admin")
+        res.render('reports-list', { path: '/report', user: req.user, title: 'Relatórios', reports: responseBody });
+    else if (req.user.role == "collaborator")
+        res.render('reports-list', { path: '/report', user: req.user, title: 'Relatórios', reports: responseBody });
+    else if (req.user.role == "client")
+        res.render('user-reportslist', { path: '/report', user: req.user, title: 'Relatórios', reports: responseBody });
 
 };
 

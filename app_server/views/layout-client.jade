@@ -5,6 +5,7 @@ html
     title= title
     link(rel='stylesheet', href='/bootstrap/css/flatly.min.css')
     link(rel='stylesheet', href='/bootstrap/css/sidebar.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
    .container-fluid.text-xs-center.text-lg-left.text-md-left.text-sm-left
@@ -12,9 +13,10 @@ html
          img(src='/images/logo.png')
        .col-lg-10.col-md-10.col-xs-7
           h2=title      
-   .container-fluid      
-       nav.navbar.navbar-default.sidebar(role='navigation').panel-shadow
-        
+   .container-fluid 
+     .row
+      .col-lg-1.col-md-1.col-sm-1     
+       nav.navbar.navbar-default.sidebar(role='navigation').panel-shadow        
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-sidebar-navbar-collapse-1')
               span.sr-only Toggle navigation
@@ -36,14 +38,9 @@ html
                   | Mensagens
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-envelope(style='font-size:16px;')            
               li(class=path=='/report'?'active':undefined).dropdown
-                a.dropdown-toggle(href='/report', data-toggle='dropdown')
+                a(href='/report')
                   | Relatórios
-                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-menu-down(style='font-size:16px;')                
-                ul.dropdown-menu.forAnimate(role='menu')
-                  li
-                    a(href="/report") Lista
-                  li
-                    a(href='/report/new') Novo                        
+                  span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-menu-down(style='font-size:16px;')                       
               li(class=path=='/about'?'active':undefined)
                 a(href='/about')
                   | Sobre
@@ -52,10 +49,7 @@ html
                 a(href='/signout')
                   | Sair
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-off(style='font-size:16px;')
-
-         
-
-       block content
+      block content
   footer
      .container  
        .row

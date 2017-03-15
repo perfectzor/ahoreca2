@@ -5,6 +5,7 @@ html
     title= title
     link(rel='stylesheet', href='/bootstrap/css/flatly.min.css')
     link(rel='stylesheet', href='/bootstrap/css/sidebar.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
    .container-fluid.text-xs-center.text-lg-left.text-md-left.text-sm-left
@@ -12,7 +13,9 @@ html
          img(src='/images/logo.png')
        .col-lg-10.col-md-10.col-xs-7
           h2=title      
-   .container-fluid      
+   .container-fluid  
+     .row
+      .col-lg-1.col-md-1.col-sm-1   
        nav.navbar.navbar-default.sidebar(role='navigation').panel-shadow
         
           .navbar-header
@@ -58,10 +61,7 @@ html
                 a(href='/signout')
                   | Sair
                   span.pull-right.hidden-xs.showopacity.glyphicon.glyphicon-off(style='font-size:16px;')
-
-         
-
-       block content
+      block content
   footer
      .container  
        .row

@@ -12,7 +12,7 @@ module.exports.usersInfo = function (req, res) {
         Use
             .find({ })
             .exec(function (err, user) {
-                console.log(user);
+                //console.log(user);
                 if (!user) {
                     sendJsonResponse(res, 404, { "message": "userid not found" });
                     return;
@@ -72,5 +72,25 @@ module.exports.usersDeleteOne = function (req, res) {
     });
         
     
+};
+module.exports.reportsList = function (req, res) {
+    
+    Use.findOne({ _id: req.params.userid }, 'reports',
+        function (err, user) {
+        if (err) {
+            sendJsonResponse(res, 500, { "message": "error" });
+            return;
+        }
+        else if (user) {
+            sendJsonResponse(res, 200, user );
+            return;
+        }
+        else if (!user) {
+            sendJsonResponse(res, 500, { "message": "no user" });
+            return;
+        }
+    })
+
+
 };
 

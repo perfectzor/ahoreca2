@@ -151,4 +151,36 @@ module.exports.deleteUser = function (req, res) {
     }
 };
 
+var renderUsersReports = function (req, res, responseBody) {
+    if (req.user.role == "admin")
+        res.render('user-reportslist', { path: '/report', user: req.user, title: 'Relatórios', reports: responseBody });
+    else if (req.user.role == "collaborator")
+        res.render('user-reportslist', { path: '/report', user: req.user, title: 'Relatórios', reports: responseBody });
+    else if (req.user.role == "client")
+        res.render('user-reportslist', { path: '/report', user: req.user, title: 'Relatórios', reports: responseBody });
+      
+};
+
+
+
+module.exports.reportsList = function (req, res) {
+    var requestOptions, path;
+    path = '/api/users/reports/' + req.user._id;
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "GET",
+        json: {}
+    };
+    request(
+        requestOptions,
+        function (err, response, body) {
+            var data = body.reports;
+            renderUsersReports(req, res, data);
+            console.log(data);     
+            
+            
+        }
+    );
+};
+
 

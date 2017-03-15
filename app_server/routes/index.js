@@ -113,7 +113,7 @@ router.post('/lead/detail/:leadid', user.can('access collaborator area'), isAuth
 
 /* Reports pages */
 router.get('/report/list', isAuthenticated, ctrlReports.reportInfo);
-router.get('/report/', isAuthenticated, ctrlReports.reportInfo);
+router.get('/report/', isAuthenticated, ctrlUsers.reportsList);
 router.get('/report/detail/:reportid', isAuthenticated, ctrlReports.reportDetail);
 router.get('/report/new', isAuthenticated, ctrlReports.addReport);
 router.post('/report/confirm', isAuthenticated, upload.single('file'), ctrlReports.confirmReport);

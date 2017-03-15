@@ -20,6 +20,8 @@
     <Content Include="app_server\views\layout-collaborator.jade" />
     <Content Include="app_server\views\layout-client.jade" />
     <Content Include="app_server\views\report-confirm.jade" />
+    <Content Include="app_server\views\user-reportslist.jade" />
+    <Content Include="app_server\views\reports-list-client.jade" />
     <Content Include="app_server\views\_includes\sharedHTMLfunctions.jade" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
@@ -42,7 +44,6 @@
     <Content Include="public\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="public\bootstrap\css\sidebar.css" />
     <Content Include="public\bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="app_server\views\dashboard-jade.jade" />
     <Content Include="app_server\views\layout.jade" />
     <Content Include="app_server\views\reports-list.jade" />
     <Content Include="app_server\views\index.jade" />

@@ -49,7 +49,6 @@ module.exports.reportsList = function (req, res) {
     Rep
         .find({}, 'name reportvat createdon')
         .exec(function (err, report) {
-            console.log(report);
             if (!report) {
                 sendJsonResponse(res, 404, { "message": "reports not found" });
                 return;
@@ -60,3 +59,4 @@ module.exports.reportsList = function (req, res) {
             sendJsonResponse(res, 200, report);
         });
 };
+

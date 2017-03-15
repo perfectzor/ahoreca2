@@ -1,0 +1,33 @@
+extends layout-client
+
+block content
+ 
+  .col-lg-10.col-lg-offset-1.col-md-offset-1.col-md-10.col-sm-offset-2.col-sm-9
+        .panel.panel-info.panel-table.panel-shadow
+          .panel-heading
+                h3.panel-title Listagem 
+          .panel-body
+             table.table.table-striped.table-bordered.table-list
+               thead
+                 tr
+                   th.hidden-xs ID
+                   th Nome
+                   th NIF
+                   th Data
+               tbody
+                 each report in reports
+                   tr
+                     td.hidden-xs=report.vat
+                     td
+                      a(href="/report/detail/#{report.reportid}")=report.vat
+                     td=report.vat
+          .panel-footer
+                ul.pagination.hidden-xs.pull-right
+                  li
+                    a(href='#') 1
+                ul.pagination.visible-xs.pull-right
+                  li
+                    a(href='#') «
+                  li
+                    a(href='#') »
+
